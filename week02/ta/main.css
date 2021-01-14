@@ -1,0 +1,23 @@
+body {
+  font-size: 24px;
+}
+
+#divOne, #divTwo, #divThree {
+  background-color: pink;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.common:hover {
+  font-weight: bold;
+}
+
+button {
+  font-size: 1.5rem;
+}
+
+input {
+  font-size: 1.5rem;
+}
+

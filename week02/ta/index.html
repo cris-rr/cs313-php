@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <title>Week02 Team Activity</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="divOne" class="common col-sm-4">First div</div>
+      <div id="divTwo" class="common col-sm-4">Second div</div>
+      <div id="divThree" class="common col-sm-4">Third div</div>
+    </div>
+  </div>
+  <button onclick="buttonClicked()">Click Me</button>
+
+  <hr>
+  <label for="color">Input a color for the first div :</label>
+  <input type="text" id="color" name="color">
+  <!-- <button onclick="setColor()">Change Color</button> -->
+  <button onclick="setColorJQuery()">Change Color</button>
+
+  <hr>
+  <button onclick="setInvisibility()">Toggle third div visibility </button>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
