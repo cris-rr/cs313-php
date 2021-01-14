@@ -11,3 +11,8 @@ function setColor() {
 function setColorJQuery() {
   $("#divOne").css("background-color", $("#color").val());
 }
+
+function toggleVisibility() {
+  console.log("toggle visibility");
+  $("#divThree").fadeToggle("slow", "linear");
+}
