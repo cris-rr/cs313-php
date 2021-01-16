@@ -1,5 +1,5 @@
     <h1>
-      Welcome to Cristhians Ruiz's Home Page
+      Welcome to CSE 341 Cristhians Ruiz's Home Page
     </h1>
     <div class="personal">
       <img src="../images/ccrrPic2.jpg" alt="My profile picture">
