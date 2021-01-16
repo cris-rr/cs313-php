@@ -15,6 +15,20 @@ body {
   font-size: 16px;
 }
 
+h1 {
+  text-align: center;
+  padding: 10px;
+  background-color: #6CB2D1;
+}
+
+a {
+  padding: 0 20px;
+}
+
+hr {
+  margin: 20px 20px 0;
+}
+
 .personal {
   padding: 0 20px;
 }
