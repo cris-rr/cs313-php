@@ -31,7 +31,7 @@
           web and database development, system administration, auto services technology, and computer-aided drafting. This
           degree is developed and granted by BYU-Idaho.</p>
 
-        <a href="https://www.byupathway.org/degrees"><img src="./images/coding.jpg" alt="applied technology programming image"></a>
+        <a href="https://www.byupathway.org/degrees"><img class="img-zoom" src="./images/coding.jpg" alt="applied technology programming image"></a>
       </section>
     </main>
     <footer>

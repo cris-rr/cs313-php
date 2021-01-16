@@ -38,6 +38,10 @@ hr {
   height: 100px;
 }
 
+.menu-item:hover {
+  font-weight: bold;
+}
+
 main {
   padding: 20px;
 }
@@ -63,6 +67,14 @@ main {
 
 main h2 {
   text-align: center;
+}
+
+.img-zoom {
+  transition: 0.5s all ease-in-out;
+}
+
+.img-zoom:hover {
+  transform: scale(1.5);
 }
 
 footer {
