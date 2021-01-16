@@ -24,7 +24,7 @@
 
 
       <section class="extra">
-        <h2 id="major">Bachelor of Science, Applied Technology</h2>
+        <h2 class="subtitle">Bachelor of Science, Applied Technology</h2>
         <p>The <strong>bachelor’s degree in applied technology</strong> helps students prepare for careers in software and web development,
           information technology, and other technology-related fields. Students customize their technology education and
           gain specific technical skills by selecting from a variety of options, including computer support, programming,
@@ -33,9 +33,10 @@
 
         <a href="https://www.byupathway.org/degrees"><img src="./images/coding.jpg" alt="applied technology programming image"></a>
       </section>
-      <footer>
-        <?php require $_SERVER['DOCUMENT_ROOT'] . '/common/footer.php'; ?>
-      </footer>
+    </main>
+    <footer>
+      <?php require $_SERVER['DOCUMENT_ROOT'] . '/common/footer.php'; ?>
+    </footer>
   </div>
 </body>
 

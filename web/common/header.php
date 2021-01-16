@@ -9,8 +9,7 @@
         <p><strong>From: </strong>Lima, Peru</p>
       </div>
     </div>
-    <a href="../index.html">CS 213 Assignments</a>
-    <a href="#contact">Contact Me</a>
+    <a href="../index.html">CSE 341 Assignments</a>
     <a href="#major">My Major</a>
 
     <hr>
