@@ -69,7 +69,14 @@ main h2 {
   text-align: center;
 }
 
+.frame {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
 .img-zoom {
+  width: 100%;
   transition: 0.5s all ease-in-out;
 }
 
