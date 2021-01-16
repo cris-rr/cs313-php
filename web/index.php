@@ -8,7 +8,7 @@
   <title>CSE 341 Cristhians Ruiz</title>
 </head>
 
-<body>
+<body onload="writeMotto()">
   <div class="wrapper">
     <header>
       <?php require $_SERVER['DOCUMENT_ROOT'] . '/common/header.php'; ?>
@@ -16,7 +16,7 @@
     <main>
       <div class="favoriteQuote">
         <blockquote>
-          "Do not pray for an easy life; pray for the strength to endure a difficult one"
+          <span id="motto"></span>
           <p>-Bruce Lee-</p>
         </blockquote>
       </div>
@@ -38,6 +38,7 @@
       <?php require $_SERVER['DOCUMENT_ROOT'] . '/common/footer.php'; ?>
     </footer>
   </div>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>

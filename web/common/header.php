@@ -10,6 +10,6 @@
       </div>
     </div>
     <a href="../assigments.php">CSE 341 Assignments</a>
-    <a href="#major">My Major</a>
+    <a href="../index.php">Home</a>
 
     <hr>

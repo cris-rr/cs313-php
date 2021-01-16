@@ -80,8 +80,6 @@ footer a {
 }
 
 
-/* -----------Extra section --------- */
-
 .extra {
   margin: 3rem auto;
   text-align: center;
@@ -95,3 +93,6 @@ footer a {
   width: 90%;
 }
 
+ul {
+  list-style: none;
+}
