@@ -19,7 +19,7 @@
         <h2 class="subtitle">Weekly Assignments</h2>
         <ul>
           <li><a href="./week01/hello.html">Week01 hello</a></li>
-          <li><a href="./week02/ta/index.html">Week01 team assignment</a></li>
+          <li><a href="./week02/ta/index.html">Week02 team assignment</a></li>
         </ul>
 
       </section>
