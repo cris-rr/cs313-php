@@ -11,12 +11,12 @@ if (!isset($_SESSION['items'])) {
     1 => array(
       "description" => "Camaro, modern an fast card in black",
       "price" => 20000,
-      "imgurl" => "../images/camaro.jpg"
+      "imgurl" => "./images/camaro.jpg"
     ),
     2 => array(
       "description" => "Hummer, every fits in the hummer, to travel every where",
       "price" => 35000,
-      "imgurl" => "../images/hummer.jpg"
+      "imgurl" => "./images/hummer.jpg"
     )
   );
   $_SESSION['items'] = $items;
