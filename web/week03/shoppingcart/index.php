@@ -8,15 +8,20 @@ if (!isset($_SESSION['cart'])) {
 }
 if (!isset($_SESSION['items'])) {
   $items = array(
-    1 => array(
+    0 => array(
       "description" => "Camaro, modern an fast card in black",
       "price" => 20000,
       "imgurl" => "./images/camaro.jpg"
     ),
-    2 => array(
+    1 => array(
       "description" => "Hummer, every fits in the hummer, to travel every where",
       "price" => 35000,
       "imgurl" => "./images/hummer.jpg"
+    ),
+    2 => array(
+      "description" => "History car, collection car, the beggining",
+      "price" => 45000,
+      "imgurl" => "./images/model-t.jpg"
     )
   );
   $_SESSION['items'] = $items;
