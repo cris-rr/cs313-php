@@ -1,6 +1,6 @@
 <?php
-session_start();
-session_destroy();
+//session_start();
+//session_destroy();
 session_start();
 
 if (!isset($_SESSION['cart'])) {
@@ -20,21 +20,18 @@ if (!isset($_SESSION['items'])) {
     )
   );
   $_SESSION['items'] = $items;
-
-  //echo 'items array:';
-  //print_r($_SESSION['items']);
-  // $arr = get_defined_vars();
-  // print_r($arr);
 }
 
 function addToCart()
 {
-  $item = array(
-    "description" => $_POST[''],
-    "price" => $_POST[''],
-    "imgurl" => $_POST['']
-  );
-  array_push($_SESSION['cart'], $item);
+  if (isset($_POST['submit'])) {
+    $item = array(
+      "description" => $_POST['description'],
+      "price" => $_POST['price'],
+      "imgurl" => $_POST['imgurl']
+    );
+    array_push($_SESSION['cart'], $item);
+  }
 }
 
 ?>
@@ -48,31 +45,33 @@ function addToCart()
 </head>
 
 <body>
-  <h1>Browse Items</h1>
+  <main>
+    <h1>Browse Items</h1>
+    <a href="cart.php">Go to Cart</a>
+    <section items>
+      <h2>Items</h2>
+      <div class="item">
+        <?php
+        $displayItems = "";
+        foreach ($_SESSION['items'] as $item) {
+          $displayItems .= "<img class='item-img' src='$item[imgurl]' alt=''>";
+          $displayItems .= "<p class='item-desc'>$item[description]</p>";
+          $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
+          $displayItems .= "<form method='POST' action='index.php'>";
+          $displayItems .= "<input type='hidden' value='$item[imgurl]' name='imgurl'>";
+          $displayItems .= "<input type='hidden' value='$item[description]' name='description'>";
+          $displayItems .= "<input type='hidden' value= '$item[price]' name='price'>";
+          $displayItems .= "<input type='submit' name='submit' value='Add to Cart'>";
+          $displayItems .= "</form>";
+        }
+        echo $displayItems;
+        addToCart();
+        ?>
+
+      </div>
+    </section>
+  </main>
+
 </body>
-<main>
-  <section items>
-    <h2>Items</h2>
-    <div class="item">
-
-      <?php
-      $displayItems = "";
-      foreach ($_SESSION['items'] as $item) {
-        $displayItems .= "<img class='item-img' src='$item[imgurl]' alt=''>";
-        $displayItems .= "<p class='item-desc'>$item[description]</p>";
-        $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
-        $displayItems .= "<form method='POST' action='addToCart'>";
-        $displayItems .= "<input type='hidden' value='$item[imgurl]' name='imgUrl'>";
-        $displayItems .= "<input type='hidden' value='$item[description]' name='description'>";
-        $displayItems .= "<input type='hidden' value= '$item[price]' name='price'>";
-        $displayItems .= "<input type='submit' name='submit'>";
-        $displayItems .= "</form>";
-      }
-      echo $displayItems;
-      ?>
-
-    </div>
-  </section>
-</main>
 
 </html>
