@@ -20,7 +20,7 @@
         <ul>
           <li><a href="./week01/hello.html">Week01 hello</a></li>
           <li><a href="./week02/ta/index.html">Week02 team assignment</a></li>
-          <li><a href="./week03/shoppingcart/index.html">Week03 Shopping cart</a></li>
+          <li><a href="./week03/shoppingcart/index.php">Week03 Shopping cart</a></li>
 
         </ul>
 
