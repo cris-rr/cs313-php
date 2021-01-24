@@ -22,6 +22,11 @@ if (!isset($_SESSION['items'])) {
       "description" => "History car, collection car, the beggining",
       "price" => 45000,
       "imgurl" => "./images/model-t.jpg"
+    ),
+    3 => array(
+      "description" => "Monster truck, full of fun, big wheels to every where",
+      "price" => 32000,
+      "imgurl" => "./images/monster-truck.jpg"
     )
   );
   $_SESSION['items'] = $items;
