@@ -2,9 +2,6 @@
 session_start();
 function getAddress()
 {
-  echo 'address from Post: ';
-  print_r($_POST);
-
   if (isset($_POST['submit'])) {
     $_SESSION['address'] = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
     $_SESSION['city'] = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
@@ -19,6 +16,7 @@ function getAddress()
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
   <title>Checkout</title>
 </head>
 
