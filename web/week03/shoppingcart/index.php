@@ -66,7 +66,7 @@ function addToCart()
         $displayItems = "";
         foreach ($_SESSION['items'] as $item) {
           $displayItems .= "<div class='item'>";
-          $displayItems .= "<img class='item-img' src='$item[imgurl]' alt=''>";
+          $displayItems .= "<div class='frame'><img class='item-img' src='$item[imgurl]' alt=''></div>";
           $displayItems .= "<p class='item-desc'>$item[description]</p>";
           $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
           $displayItems .= "<form method='POST' action='index.php'>";
