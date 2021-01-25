@@ -76,13 +76,14 @@ main h2 {
   margin-bottom: .5em;
   border: 1px #ccc solid;
   flex: 1 1 auto;
-  object-fit: cover;
+  height: 300;
+  justify-content: center;
 }
 
 .item-img {
-  width: 150px;
+  width: 100%;
   height: auto;
-
+  object-fit: cover;
 }
 
 footer {
