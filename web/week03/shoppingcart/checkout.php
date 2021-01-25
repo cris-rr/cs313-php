@@ -22,7 +22,7 @@ function getAddress()
 
 <body>
   <h1>Checkout</h1>
-  <a href="cart.php">Return to Cart</a>
+  <a class="menu-item" href="cart.php">Return to Cart</a>
   <form method="POST" action="checkout.php">
     <label for="address">Address</label>
     <input type="text" name="address">

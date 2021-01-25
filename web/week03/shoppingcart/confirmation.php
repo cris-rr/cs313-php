@@ -40,7 +40,7 @@ session_start();
 
     </div>
   </section>
-  <a href="index.php">Go to shopping again</a>
+  <a class="menu-item" href="index.php">Go to shopping again</a>
   <?php
   session_destroy();
   ?>

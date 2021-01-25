@@ -57,10 +57,10 @@ function addToCart()
 
 <body>
   <main>
-    <h1>Browse Items</h1>
-    <a href="cart.php">Go to Cart</a>
+    <h1>Welcome to Cars to Go</h1>
+    <a class="menu-item" href="cart.php">Go to Cart</a>
     <section items>
-      <h2>Items</h2>
+      <h2>Cars Gallery</h2>
       <div class="item">
         <?php
         $displayItems = "";

@@ -26,7 +26,7 @@ function removeFromCart()
 
 <body>
   <h1>View Cart</h1>
-  <a href="index.php">Return to shopping</a>
+  <a class="menu-item" href="index.php">Return to shopping</a>
 
   <h2>Total Items In Cart:
     <?$totalItems?>
