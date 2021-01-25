@@ -73,6 +73,7 @@ main h2 {
 .item {
   display: flex;
   flex-direction: column;
+  border: 1px red solid;
 }
 
 footer {
