@@ -66,9 +66,8 @@ main h2 {
 }
 
 .items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 
