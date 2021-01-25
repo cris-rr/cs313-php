@@ -66,15 +66,16 @@ main h2 {
 }
 
 .items {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
-  display: flex;
-  flex-direction: row;
-  border: 1px red solid;
-  width: 80%;
+  margin-bottom: .5em;
+  border: 1px #ccc solid;
+  flex: 1 1 auto;
 }
 
 .item-img {
@@ -112,4 +113,23 @@ footer a {
 
 ul {
   list-style: none;
+}
+
+/* media queries ------------------ */
+@media only screen and (min-width: 800px) {
+  .items {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+  }
+
+  .item {
+    max-width: 200px;
+    flex: 1 0 auto;
+    text-align: center;
+    /* height: 250px; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
