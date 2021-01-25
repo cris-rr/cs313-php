@@ -72,8 +72,14 @@ main h2 {
 
 .item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border: 1px red solid;
+  width: 80%;
+}
+
+.item-img {
+  width: 80%;
+  height: auto;
 }
 
 footer {
