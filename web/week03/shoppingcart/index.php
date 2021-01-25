@@ -59,12 +59,13 @@ function addToCart()
   <main>
     <h1>Welcome to Cars to Go</h1>
     <a class="menu-item" href="cart.php">Go to Cart</a>
-    <section items>
+    <section class="gallery">
       <h2>Cars Gallery</h2>
-      <div class="item">
+      <div class="items">
         <?php
         $displayItems = "";
         foreach ($_SESSION['items'] as $item) {
+          $displayItems .= "<div class='items'>";
           $displayItems .= "<img class='item-img' src='$item[imgurl]' alt=''>";
           $displayItems .= "<p class='item-desc'>$item[description]</p>";
           $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
@@ -73,7 +74,7 @@ function addToCart()
           $displayItems .= "<input type='hidden' value='$item[description]' name='description'>";
           $displayItems .= "<input type='hidden' value= '$item[price]' name='price'>";
           $displayItems .= "<input type='submit' name='submit' value='Add to Cart'>";
-          $displayItems .= "</form>";
+          $displayItems .= "</form></div>";
         }
         echo $displayItems;
         addToCart();
