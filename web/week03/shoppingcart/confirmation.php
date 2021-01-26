@@ -11,39 +11,41 @@ session_start();
   <title>Confirmation</title>
 </head>
 
-<body>
-  <h1>Confirmation purchase</h1>
-  <section class="items">
-    <h2>Items</h2>
-    <?php
-    $displayItems = "";
-    foreach ($_SESSION['cart'] as $item) {
-      $displayItems .= "<img class='item-img' src='$item[imgurl]' alt=''>";
-      $displayItems .= "<p class='item-desc'>$item[description]</p>";
-      $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
-    }
-    echo $displayItems;
-    ?>
-  </section>
-  <section class="address">
-    <h2>Your Address</h2>
-    <div class="address">
-      <p> <span>Adress: </span>
-        <? echo $_SESSION['address'] ?>
-      </p>
-      <p><span>City: </span>
-        <?echo $_SESSION['city'] ?>
-      </p>
-      <p><span>ZIP Code: </span>
-        <?echo $_SESSION['zipcode'] ?>
-      </p>
+<body id="confirma-page">
+  <main>
+    <h1>Confirmation purchase</h1>
+    <section class="items">
+      <h2>Thank you for purchase with us, these are your Items</h2>
+      <div class='items'>
+        <?php
+        $displayItems = "";
+        foreach ($_SESSION['cart'] as $item) {
+          $displayItems .= "<div class='item'><img class='item-img' src='$item[imgurl]' alt=''>";
+          $displayItems .= "<p class='item-desc'>$item[description]</p>";
+          $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
+          $displayItems .= "</div>";
+        }
+        echo $displayItems;
+        ?>
+      </div>
+    </section>
+    <section class="address">
+      <h2>Your Address</h2>
+      <div class="address">
+        <p> <span>Adress: </span>
+          <? echo $_SESSION['address'] ?>
+        </p>
+        <p><span>City: </span>
+          <?echo $_SESSION['city'] ?>
+        </p>
+        <p><span>ZIP Code: </span>
+          <?echo $_SESSION['zipcode'] ?>
+        </p>
 
-    </div>
-  </section>
-  <a class="menu-item" href="index.php">Go to shopping again</a>
-  <?php
-  session_destroy();
-  ?>
+      </div>
+    </section>
+    <a class="menu-item" href="logout.php">Go to shopping again</a>
+  </main>
 </body>
 
 </html>

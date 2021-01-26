@@ -51,7 +51,7 @@ function addToCart()
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="./css/main.css">
   <title>Items to shop</title>
 </head>
 
@@ -67,13 +67,13 @@ function addToCart()
         foreach ($_SESSION['items'] as $item) {
           $displayItems .= "<div class='item'>";
           $displayItems .= "<div class='frame'><img class='item-img' src='$item[imgurl]' alt=''></div>";
-          $displayItems .= "<p class='item-desc'>$item[description]</p>";
+          $displayItems .= "<div class='frame-desc'><p class='item-desc'>$item[description]</p></div>";
           $displayItems .= "<p class='item-price'>$<span class='price'>$item[price]</span></p>";
           $displayItems .= "<form method='POST' action='index.php'>";
           $displayItems .= "<input type='hidden' value='$item[imgurl]' name='imgurl'>";
           $displayItems .= "<input type='hidden' value='$item[description]' name='description'>";
           $displayItems .= "<input type='hidden' value= '$item[price]' name='price'>";
-          $displayItems .= "<input type='submit' name='submit' value='Add to Cart'>";
+          $displayItems .= "<input class='btn' type='submit' name='submit' value='Add to Cart'>";
           $displayItems .= "</form></div>";
         }
         echo $displayItems;

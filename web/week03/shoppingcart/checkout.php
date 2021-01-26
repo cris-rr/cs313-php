@@ -21,20 +21,23 @@ function getAddress()
 </head>
 
 <body>
-  <h1>Checkout</h1>
-  <a class="menu-item" href="cart.php">Return to Cart</a>
-  <form method="POST" action="checkout.php">
-    <label for="address">Address</label>
-    <input type="text" name="address">
-    <label for="city">City</label>
-    <input type="text" name="city">
-    <label for="zipcode">ZIP Code</label>
-    <input type="text" name="zipcode">
-    <input type="submit" name="submit" value="Complete Purchase">
-  </form>
-  <?php
-  getAddress();
-  ?>
+  <main>
+    <h1>Checkout</h1>
+    <h2>Please add your address</h2>
+    <a class="menu-item" href="cart.php">Return to Cart</a>
+    <form class="form-basic" method="POST" action="checkout.php">
+      <label for="address">Address</label>
+      <input class="data" type="text" name="address" required>
+      <label for="city">City</label>
+      <input class="data" type="text" name="city" required>
+      <label for="zipcode">ZIP Code</label>
+      <input class="data" type="text" name="zipcode" required>
+      <input class="btn" type="submit" name="submit" value="Complete Purchase">
+    </form>
+    <?php
+    getAddress();
+    ?>
+  </main>
 </body>
 
 </html>
