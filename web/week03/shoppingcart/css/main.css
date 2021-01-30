@@ -192,7 +192,7 @@ ul {
   }
 
   .item {
-    max-width: 200px; */
+    max-width: 200px;
     flex: 1 0 auto;
     text-align: center;
     /* height: 250px; */
