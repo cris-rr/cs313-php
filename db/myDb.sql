@@ -1,5 +1,6 @@
 -- Create database
 -- CREATE DATABASE buddyloan;
+-- Using a schema because we can only have 1 database on Heroku.
 CREATE SCHEMA buddyloan;
 
 -- Users Table
