@@ -36,3 +36,21 @@ CREATE TABLE buddyloan.transactions (
 
 -- check tables and constraints
 -- \d+ buddyloan.
+
+-- Insert data to users table
+INSERT INTO buddyloan.users (firstname, lastname, pin, phone, email, password)
+VALUES ('Cris', 'Ruiz', '2318', '982-999-154', 'cris@gmail.com', 'pass12345');
+
+INSERT INTO buddyloan.users (firstname, lastname, pin, phone, email, password)
+VALUES ('Adrian', 'Bernal', '1820', '444-555-234', 'abernal@gmail.com', 'pass98765');
+
+-- Insert data to buddies table
+INSERT INTO buddyloan.buddies (userid, buddyid, date, balance)
+VALUES (1,2,'2021-01-28',0);
+
+-- Insert data to transactions table
+INSERT INTO buddyloan.transactions (description, date, amount, image_path, userid, buddyid)
+VALUES ('Pay a domain for adrian.com domain at Gooddady.com', '20201-01-28', 12, 'goddady_invoice.pdf',1,2);
+
+-- Update balance in buddies table
+UPDATE buddyloan.buddies SET balance = 12 WHERE userid = 1 and buddyid = 2;
