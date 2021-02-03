@@ -9,6 +9,14 @@ session_start();
 
 
 // return $db;
+
+$display = "<h1>Scripture Resources</h1>";
+
+while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+  $display .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+  $display .= " - '$row[content]'</p>";
+}
+
 if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
   $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = :searchBook';
