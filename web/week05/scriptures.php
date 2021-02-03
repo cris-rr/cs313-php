@@ -50,8 +50,10 @@ try {
 // return $db;
 
 $searchBook = $_POST['search'];
-
-$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%');
+$strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%';
+echo $strSql;
+exit();
+$statement = $db->prepare($strSql);
 $statement->execute();
 
 $displaySearch = "<h1>Scripture Search</h1>";
