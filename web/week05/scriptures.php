@@ -48,19 +48,21 @@ try {
 }
 
 // return $db;
+if (isset($_POST['search'])) {
+  $searchBook = $_POST['search'];
+  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%';
+  echo $strSql;
+  exit();
+  $statement = $db->prepare($strSql);
+  $statement->execute();
 
-$searchBook = $_POST['search'];
-$strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%';
-echo $strSql;
-exit();
-$statement = $db->prepare($strSql);
-$statement->execute();
+  $displaySearch = "<h1>Scripture Search</h1>";
 
-$displaySearch = "<h1>Scripture Search</h1>";
-
-while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-  $displaySearch .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
-  $displaySearch .= " - '$row[content]'</p>";
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+    $displaySearch .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+    $displaySearch .= " - '$row[content]'</p>";
+  }
+  # code...
 }
 
 ?>
@@ -83,6 +85,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     <input type="submit" name="submit" value="Submit">
   </form>
   <?
+
   echo $searchBook;
   echo $statement;
 
