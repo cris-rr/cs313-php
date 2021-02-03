@@ -22,10 +22,10 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 
 if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
-  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book like "%' . ':searchBook' . '%"';
-  $statement2 = $db->prepare($strSql);
-  $statement2->bindValue(':searchBook', $searchBook, PDO::PARAM_STR);
-  $statement2->execute();
+  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = :searchBook';
+  $statement = $db->prepare($strSql);
+  $statement->bindValue(':searchBook', $searchBook, PDO::PARAM_STR);
+  $statement->execute();
 
   //echo $strSql;
   // exit();
