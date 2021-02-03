@@ -47,11 +47,11 @@ try {
   die();
 }
 
-return $db;
+// return $db;
 
-// $searchBook = $_POST['search'];
+$searchBook = $_POST['search'];
 
-// $statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%');
+$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%');
 
 
 ?>
