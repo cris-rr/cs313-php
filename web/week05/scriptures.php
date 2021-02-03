@@ -61,10 +61,10 @@ if (isset($_POST['search'])) {
   $displaySearch = "<h1>Scripture Search</h1>";
 
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    $displaySearch .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
-    $displaySearch .= " - '$row[content]'</p>";
+    $displaySearch .= "<a href='detail.php'><p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+    $displaySearch .= "'</p></a>";
   }
-  # code...
+  $_SESSION['displaySearch'] = $displaySearch;
 }
 
 ?>
