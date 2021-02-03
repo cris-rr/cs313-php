@@ -52,7 +52,14 @@ try {
 $searchBook = $_POST['search'];
 
 $statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%');
+$statement->execute();
 
+$displaySearch = "<h1>Scripture Search</h1>";
+
+while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+  $displaySearch .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+  $displaySearch .= " - '$row[content]'</p>";
+}
 
 ?>
 <!DOCTYPE html>
