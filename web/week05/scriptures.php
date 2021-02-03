@@ -48,3 +48,30 @@ try {
 }
 echo $display;
 return $db;
+
+$searchBook = $_POST['search'];
+
+$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%');
+
+echo $searchBook;
+echo $statement;
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form method="POST" action="scriptures.php">
+    <label for="search"></label>
+    <input type="text" name="search">
+    <input type="submit" name="submit" value="Submit">
+  </form>
+</body>
+
+</html>
