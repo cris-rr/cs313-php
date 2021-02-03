@@ -38,8 +38,8 @@ try {
   $display = "<h1>Scripture Resources</h1>";
 
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    $display .= "<strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
-    $display .= " - '$row[content]'";
+    $display .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+    $display .= " - '$row[content]'</p>";
   }
 } catch (PDOException $ex) {
   // for debugging only not for production site
