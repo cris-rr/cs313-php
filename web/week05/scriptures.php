@@ -12,6 +12,9 @@ session_start();
 
 $display = "<h1>Scripture Resources</h1>";
 
+$statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures');
+$statement->execute();
+
 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
   $display .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
   $display .= " - '$row[content]'</p>";

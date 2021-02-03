@@ -33,16 +33,7 @@ function get_db()
     // this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Now we can use $db->
-    $statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures');
-    $statement->execute();
 
-    // Go through each result
-    $display = "<h1>Scripture Resources</h1>";
-
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $display .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
-      $display .= " - '$row[content]'</p>";
-    }
   } catch (PDOException $ex) {
     // for debugging only not for production site
     echo "Error connecting to DB. Details: $ex";
