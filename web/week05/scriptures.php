@@ -50,11 +50,13 @@ try {
 // return $db;
 if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
-  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = "' . $searchBook . '"';
+  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = :searchBook';
+  $statement = $db->prepare($strSql);
+  $statement->bindValue(':searchBook', $serchBook, PDO::PARAM_STR);
+  $statement->execute();
+
   //echo $strSql;
   // exit();
-  $statement = $db->prepare($strSql);
-  $statement->execute();
 
   $displaySearch = "<h1>Scripture Search</h1>";
 
