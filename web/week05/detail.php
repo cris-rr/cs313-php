@@ -1,6 +1,9 @@
 <?php
+include 'connection.php';
+$db = get_db();
+
 session_start();
-$db = $_SESSION['db'];
+
 $id = $_SESSION['scriptureId'];
 $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE id = :id';
 $statement = $db->prepare($strSql);
