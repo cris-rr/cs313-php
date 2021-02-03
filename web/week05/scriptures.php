@@ -48,6 +48,8 @@ try {
   die();
 }
 
+$_SESSION['db'] = $db;
+
 // return $db;
 if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
