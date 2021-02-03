@@ -35,13 +35,16 @@ try {
   $statement->execute();
 
   // Go through each result
+  $display = "<h1>Scripture Resources</h1>";
+
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    echo $row['id'];
+    $display .= "<strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+    $display .= " - '$row[content]'";
   }
 } catch (PDOException $ex) {
   // for debugging only not for production site
   echo "Error connecting to DB. Details: $ex";
   die();
 }
-
+echo $display;
 return $db;
