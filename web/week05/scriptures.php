@@ -1,4 +1,5 @@
 <?php
+session_start();
 try {
   // default Heroku Postgres configuration URL
   // this is a built in function in php to get the value from an enviornment variable
@@ -63,8 +64,8 @@ if (isset($_POST['search'])) {
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $displaySearch .= "<a href='detail.php'><p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
     $displaySearch .= "'</p></a>";
+    $_SESSION['scriptureId'] = $row['id'];
   }
-  $_SESSION['displaySearch'] = $displaySearch;
 }
 
 ?>

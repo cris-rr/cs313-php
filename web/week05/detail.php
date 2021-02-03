@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
 
 <body>
   <?
-    echo $_SESSION['displaySearch'];
+    echo $_SESSION['scriptureId'];
   ?>
 </body>
 
