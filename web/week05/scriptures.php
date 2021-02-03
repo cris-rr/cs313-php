@@ -52,7 +52,7 @@ if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
   $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = :searchBook';
   $statement = $db->prepare($strSql);
-  $statement->bindValue(':searchBook', $serchBook, PDO::PARAM_STR);
+  $statement->bindValue(':searchBook', $searchBook, PDO::PARAM_STR);
   $statement->execute();
 
   //echo $strSql;
@@ -87,7 +87,10 @@ if (isset($_POST['search'])) {
     <input type="submit" name="submit" value="Submit">
   </form>
   <?
-  echo $displaySearch;
+  if (isset($displaySearch)) {
+    echo $displaySearch;
+  }
+  
   ?>
 </body>
 
