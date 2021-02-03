@@ -51,7 +51,7 @@ try {
 if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
   $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = "' . $searchBook . '"';
-  echo $strSql;
+  //echo $strSql;
   // exit();
   $statement = $db->prepare($strSql);
   $statement->execute();
@@ -85,10 +85,7 @@ if (isset($_POST['search'])) {
     <input type="submit" name="submit" value="Submit">
   </form>
   <?
-
-  echo $searchBook;
-  echo $statement;
-
+  echo $displaySearch;
   ?>
 </body>
 
