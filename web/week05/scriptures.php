@@ -46,15 +46,13 @@ try {
   echo "Error connecting to DB. Details: $ex";
   die();
 }
-echo $display;
+// echo $display;
 return $db;
 
 $searchBook = $_POST['search'];
 
 $statement = $db->prepare('SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE %' . $searchBook . '%');
 
-echo $searchBook;
-echo $statement;
 
 ?>
 <!DOCTYPE html>
@@ -67,11 +65,19 @@ echo $statement;
 </head>
 
 <body>
+  <?
+    echo $display;
+  ?>
   <form method="POST" action="scriptures.php">
     <label for="search"></label>
     <input type="text" name="search">
     <input type="submit" name="submit" value="Submit">
   </form>
+  <?
+  echo $searchBook;
+  echo $statement;
+
+  ?>
 </body>
 
 </html>
