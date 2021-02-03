@@ -50,9 +50,9 @@ try {
 // return $db;
 if (isset($_POST['search'])) {
   $searchBook = $_POST['search'];
-  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book LIKE "%' . $searchBook . '%"';
-  // echo $strSql;
-  // exit();
+  $strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE book = "' . $searchBook . '"';
+  echo $strSql;
+  exit();
   $statement = $db->prepare($strSql);
   $statement->execute();
 
