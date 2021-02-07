@@ -15,11 +15,6 @@ require_once(__DIR__ . '/library/connection.php');
 //Get Buddyloan model
 require_once(__DIR__ . '/model/users-model.php');
 
-// Link to Login page
-// $accountLink = "<a href='/phpmotors/accounts/index.php?action=login'
-// title='Acces to login page'>My Account</a>";
-
-
 $action = filter_input(INPUT_GET, 'action');
 if ($action == NULL) {
   $action = filter_input(INPUT_POST, 'action');

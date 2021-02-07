@@ -17,7 +17,7 @@ if ($_SESSION['loggedin']) {
 }
 ?>
 <div class="logo">
-  <img src="images/logo.jpg" alt="BuddyLoan">
+  <img src="../images/buddy256.png" alt="BuddyLoan ">
 </div>
 
 <div class="welcome ">
