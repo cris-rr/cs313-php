@@ -10,21 +10,10 @@ $_SESSION['loggedin'] = true;
 $_SESSION['userId'] = 1;
 
 //Get database connection file
-//  require_once($_SERVER['DOCUMENT_ROOT'] . '/library/connection.php');
-
-// echo '__file__: ' . dirname(__FILE__);
-// echo '<br>__dir__: ' . __DIR__;
-// echo '<br>basename: ' . basename(__FILE__);
-// echo '<br>Document Root: ' . $_SERVER['DOCUMENT_ROOT'];
-// exit();
-
 require_once(__DIR__ . '/library/connection.php');
-// require_once('library/connection.php');
 
 //Get Buddyloan model
-// require_once($_SERVER['DOCUMENT_ROOT'] . '/model/users-model.php');
 require_once(__DIR__ . '/model/users-model.php');
-// require_once('model/users-model.php');
 
 // Link to Login page
 // $accountLink = "<a href='/phpmotors/accounts/index.php?action=login'
@@ -43,13 +32,4 @@ switch ($action) {
     break;
   default:
     header('location: accounts/');
-
-    // if ($_SESSION['loggedin']) {
-    //     header('location: accounts/');
-
-    //     include 'view/home.php';
-    //   } else {
-    //     header('location: accounts/');
-    //     // include 'view/login.php';
-    //   }
 }

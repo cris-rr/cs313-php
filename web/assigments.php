@@ -21,6 +21,8 @@
           <li><a href="./week01/hello.html">Week01 hello</a></li>
           <li><a href="./week02/ta/index.html">Week02 team assignment</a></li>
           <li><a href="./week03/shoppingcart/index.php">Week03 Shopping cart</a></li>
+          <li><a href=".#">Week04</a>Week 04</li>
+          <li><a href="./buddyloan/">Week 05 Project BuddyLoan</a></li>
 
         </ul>
 
