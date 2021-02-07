@@ -8,9 +8,12 @@
 session_start();
 
 //Get database connection file
-require_once($_SERVER['DOCUMENT_ROOT'] . '/library/connection.php');
+// echo '<br>__dir__: ' . __DIR__;
+// echo '<br>dirname(__DIR__): ' . dirname(__DIR__, 1);
+
+require_once(dirname(__DIR__, 1) . '/library/connection.php');
 //Get Buddyloan model
-require_once($_SERVER['DOCUMENT_ROOT'] . '/model/users-model.php');
+require_once(dirname(__DIR__, 1) . '/model/users-model.php');
 
 
 $action = filter_input(INPUT_GET, 'action');
@@ -25,7 +28,7 @@ switch ($action) {
     include 'view/template.php';
     break;
   case 'admin':
-    if (isset($_SESSION['userData'])) {
+    if (isset($_SESSION['loggedin'])) {
       include '../view/admin.php';
     }
     break;
