@@ -42,12 +42,14 @@ switch ($action) {
     include 'view/template.php';
     break;
   default:
-    if ($_SESSION['loggedin']) {
-      header('location: accounts/?action=admin');
+    header('location: accounts/');
 
-      include 'view/home.php';
-    } else {
-      header('location: accounts/');
-      // include 'view/login.php';
-    }
+    // if ($_SESSION['loggedin']) {
+    //     header('location: accounts/');
+
+    //     include 'view/home.php';
+    //   } else {
+    //     header('location: accounts/');
+    //     // include 'view/login.php';
+    //   }
 }

@@ -7,11 +7,11 @@ if ($_SESSION['loggedin']) {
   //echo 'baserurl: ' . dirname(__DIR__, 1);
   $displayMenu = <<<EOT
     <ul class="menubar">
-    <li class="menu-item"><a href='/'>Home</a></li>
-    <li class='menu-item'><a href='/accounts/' title='view buddies page'>Admin</a></li>"
-    <li class='menu-item'><a href='/buddies/' title='view Buddies page'>Buddies</a></li>"
-    <li class='menu-item'><a href='/transactions/' title='view Transactions page'>Transactions</a></li>"
-    <li class='menu-item'><a href='/buddies/?action='balance' title='view buddies page'>Balance</a></li>"
+    <li class="menu-item"><a href='../'>Home</a></li>
+    <li class='menu-item'><a href='../accounts/' title='view buddies page'>Admin</a></li>"
+    <li class='menu-item'><a href='../buddies/' title='view Buddies page'>Buddies</a></li>"
+    <li class='menu-item'><a href='../transactions/' title='view Transactions page'>Transactions</a></li>"
+    <li class='menu-item'><a href='../buddies/?action='balance' title='view buddies page'>Balance</a></li>"
     </ul>
     EOT;
 }
