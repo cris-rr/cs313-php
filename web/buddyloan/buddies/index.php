@@ -8,13 +8,13 @@
 session_start();
 
 //Get database connection file
-require_once($_SERVER['DOCUMENT_ROOT'] . '/library/connection.php');
+require_once(dirname(__DIR__, 1) . '/library/connection.php');
 
 // Get functions
-require_once($_SERVER['DOCUMENT_ROOT'] . '/library/functions.php');
+require_once(dirname(__DIR__, 1) . '/library/functions.php');
 
 //Get Buddyloan model
-require_once($_SERVER['DOCUMENT_ROOT'] . '/model/buddies-model.php');
+require_once(dirname(__DIR__, 1) . '/model/buddies-model.php');
 
 
 

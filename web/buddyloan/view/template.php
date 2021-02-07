@@ -11,7 +11,7 @@
 <body>
   <header>
     <?php
-    require($_SERVER['DOCUMENT_ROOT'] . '/common/header.php');
+    require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
   <h1>Buddy Loan</h1>
@@ -19,7 +19,7 @@
 
   <footer>
     <?php
-    require($_SERVER['DOCUMENT_ROOT'] . '/common/footer.php');
+    require(dirname(__DIR__, 1) . '/common/footer.php');
     ?>
   </footer>
 </body>
