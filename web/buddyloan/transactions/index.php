@@ -16,6 +16,9 @@ require_once(dirname(__DIR__, 1) . '/library/functions.php');
 //Get Buddyloan model
 require_once(dirname(__DIR__, 1) . '/model/buddies-model.php');
 
+// Get Transactions model
+require_once(dirname(__DIR__, 1) . '/model/transactions-model.php');
+
 
 
 $action = filter_input(INPUT_GET, 'action');
@@ -31,7 +34,7 @@ switch ($action) {
     break;
   default:
     $userId = $_SESSION['userId'];
-    // $transactions = getTransactions($userId);
-    // $displayBuddies = buildTransactionsDisplay($buddies);
+    $transactions = getTransactions($userId);
+    $displayTransactions = buildTransactionsDisplay($transactions);
     include '../view/transactions.php';
 }

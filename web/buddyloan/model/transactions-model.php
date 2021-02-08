@@ -1,17 +1,18 @@
 <?php
 
-// echo 'this is the user model';
+// echo 'this is the transactions model';
 
-function getBuddies($userId)
+function getTransactions($userId)
 {
   // Create a connection to the database
   $db = get_db();
 
   // SQL Statement
-  $sql = 'SELECT b.userid, u.firstname, u.lastname, u.pin, u. phone, u.email, b.balance 
-  FROM buddyloan.buddies b 
-  JOIN buddyloan.users u ON b.buddyid = u.userid 
-  WHERE b.userid = :userId';
+  $sql = 'SELECT t.userid, t.buddyid, b.firstname, b.lastname, 
+    t.transactionid, t.description, t.date, t.amount, t.image_path
+  FROM buddyloan.transactions t 
+  JOIN buddyloan.users b on t.buddyid = b.userid 
+  WHERE t.userid = :userId';
 
   // prepared statemenet
   $stmt = $db->prepare($sql);
@@ -21,11 +22,11 @@ function getBuddies($userId)
 
   // Ejecuta la consulta
   $stmt->execute();
-  $buddies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   // Close the database interaction
   $stmt->closeCursor();
 
   // Return the client record
-  return $buddies;
+  return $transactions;
 }
