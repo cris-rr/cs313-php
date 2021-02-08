@@ -10,6 +10,9 @@ session_start();
 //Get database connection file
 require_once(dirname(__DIR__, 1) . '/library/connection.php');
 
+//Get functions
+require_once(dirname(__DIR__, 1) . '/library/functions.php');
+
 //Get Buddyloan model
 require_once(dirname(__DIR__, 1) . '/model/users-model.php');
 
@@ -26,6 +29,16 @@ switch ($action) {
     include 'view/template.php';
     break;
   case 'admin':
+    // TODO: get user data
+    $userId = $_SESSION['userId'];
+    $user = getUserById($userId);
+    $displayUserData = buildUserDataDisplay($user);
+
+    // TODO: prepare the admindisplay
+    // TODO: render to the view 
+
+
+
     include '../view/admin.php';
     break;
   case 'login':

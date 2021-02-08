@@ -1,4 +1,6 @@
 <?php
+
+// Build Buddies display
 function buildBuddiesDisplay($buddies)
 {
   $dv = '<ul id="buddy-display">';
@@ -17,6 +19,7 @@ function buildBuddiesDisplay($buddies)
   return $dv;
 }
 
+// Build Transaction display
 function buildTransactionsDisplay($transactions)
 {
   $dv = '<ul id="transactions-display">';
@@ -34,4 +37,12 @@ function buildTransactionsDisplay($transactions)
 
   $dv .= '<ul/>';
   return $dv;
+}
+
+// Build Admin display
+function buildUserDataDisplay($user)
+{
+  $dv = "
+
+  ";
 }

@@ -16,8 +16,25 @@
     require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
-  <h1 class="title">Buddy Loan</h1>
-  <p>This is the user personal data admin page</p>
+  <h1 class="title">Configure your personal information</h1>
+  <p>Here you can view and edit your data and credentials</p>
+
+  <main class="data">
+    <section class="info">
+      <h2>Personal details</h2>
+      <p><span class="info-title">First Name: </span>Pedro</p>
+      <p><span class="info-title">Last Name: </span>Perez</p>
+      <p><span class="info-title">Phome: </span>9989999555</p>
+      <p><span class="info-title">Email: </span>pperez@gmail.com</p>
+      <p><span class="info-title">Pin: </span>8734</p>
+    </section>
+
+    <section class="info-edit">
+      <h2>Change your data</h2>
+      <form action=""></form>
+    </section>
+  </main>
+
 
   <footer>
     <?php

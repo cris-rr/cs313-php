@@ -7,7 +7,7 @@ function getUserById($userId)
   $db = get_db();
 
   // SQL Statement
-  $sql = 'SELECT * FROM buddyloan.users WHERE userid = :usrId';
+  $sql = 'SELECT * FROM buddyloan.users WHERE userid = :userId';
 
   // prepared statemenet
   $stmt = $db->prepare($sql);
