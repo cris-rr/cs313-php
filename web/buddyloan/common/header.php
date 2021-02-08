@@ -5,7 +5,7 @@ if ($_SESSION['loggedin']) {
   $displayMenu = "
     <ul class='menubar'>
     <li class='menu-item'><a class='pageHome' href='../'>Home</a></li>
-    <li class='menu-item'><a class='pageAdmin' href='../accounts/' title='view buddies page'>Admin</a></li>
+    <li class='menu-item'><a class='pageAdmin' href='../accounts/?action=admin' title='view buddies page'>Admin</a></li>
     <li class='menu-item'><a class='pageBuddies' href='../buddies/' title='view Buddies page'>Buddies</a></li>
     <li class='menu-item'><a class='pageTransactions' href='../transactions/' title='view Transactions page'>Transactions</a></li>
     </ul>";

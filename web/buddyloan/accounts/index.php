@@ -25,6 +25,9 @@ switch ($action) {
   case 'template':
     include 'view/template.php';
     break;
+  case 'admin':
+    include '../view/admin.php';
+    break;
   case 'login':
     include '../view/login.php';
     break;
@@ -33,7 +36,7 @@ switch ($action) {
     break;
   default:
     if (isset($_SESSION['loggedin'])) {
-      include '../view/admin.php';
+      include '../view/home.php';
     } else {
       include '../view/login.php';
     }
