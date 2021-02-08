@@ -26,5 +26,9 @@ switch ($action) {
     include 'view/template.php';
     break;
   default:
-    header('location: accounts/');
+    if (isset($_SESSION['loggedin'])) {
+      include 'view/home.php';
+    } else {
+      header('location: accounts/');
+    }
 }
