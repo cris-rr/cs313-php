@@ -111,6 +111,59 @@ td {
   padding: 0 1rem;
 }
 
+
+/* Forms --------------------------------- */
+.form-basic {
+  display: flex;
+  flex-direction: column;
+  /* border: solid 1px red; */
+  max-width: 400px;
+  min-width: 200px;
+  padding: 1rem;
+}
+
+.data {
+  height: 2rem;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+  max-width: 400px;
+}
+
+.form-basic .sign-button,
+.regbtn {
+  margin-top: 1.5rem;
+  background-color: #4c96d7;
+  padding: 0.5rem;
+  color: #3a3a3a;
+  border: 1px #3a3a3a solid;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.form-basic a {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+input:required {
+  border-left: red solid 6px;
+}
+
+input:required:valid {
+  border-left: rgb(0, 140, 255) solid 6px;
+}
+
+.password-requirements {
+  font-size: 0.75rem;
+}
+
+.notification,
+.notice {
+  color: brown;
+}
+
 /* Footer ------------- */
 
 footer {
@@ -126,3 +179,4 @@ footer>div {
   padding: 0;
   line-height: 1.1rem;
 }
+
