@@ -35,6 +35,7 @@ switch ($action) {
     include '../view/admin.php';
     break;
   case 'login':
+    unset($_SESSION);
     include '../view/login.php';
     break;
   case 'registration':

@@ -16,7 +16,7 @@
     require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
-  <h1 class="title">Buddy Loan</h1>
+  <h1 class="title">Your Dashboard</h1>
   <p>Here will be a dashboard of the user if is logged else the login/register page</p>
 
   <footer>

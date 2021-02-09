@@ -20,7 +20,6 @@
   <p>Here you can view and edit your data and credentials</p>
 
   <main class="user-data">
-    <h2>Change your data</h2>
     <form class="form-basic" id="admin" method="POST" action="">
       <label for="firstname">First Name:</label>
       <input class="data" type="text" name="firstname" id="firstname" <?php if (isset($user['firstname'])) {

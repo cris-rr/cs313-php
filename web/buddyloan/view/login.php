@@ -16,7 +16,7 @@
     require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
-  <h1>Buddy Loan</h1>
+  <h1 class="title">Buddy Loan</h1>
   <p>Login page</p>
 
   <footer>

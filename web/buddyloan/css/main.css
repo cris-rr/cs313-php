@@ -1,6 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap'); */
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap'); */
 
 :root {
   --blue: #90E7F8;
@@ -28,9 +27,15 @@ body {
 }
 
 .title {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: var(--black);
+  font-weight: lighter;
 }
+
+h2 {
+  font-weight: normal;
+}
+
 /* Header --------------------------- */
 .header-top {
   display: flex;
@@ -44,16 +49,64 @@ body {
 }
 
 .logo {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
+  width: 128px;
+  min-width: 64px;
 }
 
 .logo img {
-  width: 128px;
+  width: 100%;
   height: auto;
 }
 
-.welcome{
+.app-title {
+  text-align: center;
+}
+
+.app-title h1 {
+  margin-bottom: 0.1rem; 
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3rem;
+  color: var(--black);
+  font-weight: lighter;
+}
+
+.title-first {
+  font-weight: lighter;
+}
+
+.app-title p {
+  margin-top: 0;
+  font-family: 'Lato', sans-serif ;
+  font-size: 1.2rem;
+  color: var(--black);
+  font-weight: lighter;
+  
+}
+
+.welcome {
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+  text-align: right;
+  padding-top: 2.4rem;
+  color: var(--black);
+}
+
+.welcome p {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+.welcome a {
+  text-decoration: none;
+}
+
+.welcome a:hover {
+  /* border: var(--black) 0.5px solid; */
+  border-radius: 0.5em;
+  background-color: var(--yellow);
   font-weight: bold;
+  padding: 0.5em;
 }
 
 nav {
@@ -127,16 +180,19 @@ td {
   padding: 0.2rem;
   font-size: 0.9rem;
   max-width: 400px;
+  border: var(--black) 0.5px solid;
+  border-radius: 5px;
 }
 
 .form-basic .sign-button,
 .regbtn {
   margin-top: 1.5rem;
-  background-color: #4c96d7;
+  background-color: var(--yellow);
   padding: 0.5rem;
-  color: #3a3a3a;
-  border: 1px #3a3a3a solid;
-  font-weight: bold;
+  color: var(--black);
+  border: 2px #9fe222 solid;
+  border-radius: 0.3em;
+  font-weight: normal;
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -148,11 +204,15 @@ td {
 }
 
 input:required {
-  border-left: red solid 6px;
+  /* border-left: red solid 6px; */
+  border-left: var(--red) solid 6px;
+
 }
 
 input:required:valid {
-  border-left: rgb(0, 140, 255) solid 6px;
+  /* border-left: rgb(0, 140, 255) solid 6px; */
+  border-left: var(--blue) solid 6px;
+
 }
 
 .password-requirements {
