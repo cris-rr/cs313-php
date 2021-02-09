@@ -107,6 +107,7 @@ h2 {
   background-color: var(--yellow);
   font-weight: bold;
   padding: 0.5em;
+  color: var(--black);
 }
 
 nav {
