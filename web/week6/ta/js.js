@@ -24,16 +24,16 @@ $("#scriptureform").submit(function (event) {
       method: "POST",
       url: "insert_scripture.php",
       data: $("#scriptureform").serialize(),
-      success: function () {
+      success: function (res) {
         console.log('success');
-        $('#response').innerHTML = response;
-        console.log(response);
+        $('#response').innerHTML = res;
+        console.log(res);
       }
     })
-    .done(function (response) {
+    .done(function (res) {
       console.log('done');
-      $('#response').innerHTML = response;
-      console.log(response);
+      $('#response').innerHTML = res;
+      console.log(res);
 
     })
     .fail(function (message) {
