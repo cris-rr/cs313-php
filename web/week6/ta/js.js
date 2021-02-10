@@ -19,21 +19,25 @@
 
 $("#scriptureform").on('sumit', function (event) {
   event.preventDefault();
-
+  console.log("before post");
   $.ajax({
       method: "POST",
       url: "insert_scripture.php",
       data: $("#scriptureform").serialize(),
       success: function () {
+        console.log('success');
         $('#response').innerHtml = response;
         console.log(response);
       }
     })
-    // .done(function (response) {
-    //   $('#response').innerHtml = response;
-    //   console.log(response);
-    // })
+    .done(function (response) {
+      console.log('done');
+      $('#response').innerHtml = response;
+      console.log(response);
+
+    })
     .fail(function (message) {
+      console.log('file');
       $("#response").text(message);
       console.log(message);
     });
