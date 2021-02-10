@@ -24,9 +24,9 @@ $("#scriptureform").submit(function (event) {
       url: "response.php",
       // data: { name: "Dan", example: "Yup" }
     })
-    .success: function (response) {
-      $('#response')
-    }
+    .done(function (response) {
+      $('#response').innerHtml = response;
+    })
     // .done(function (message) {
     //     $("#log").text(message);
     // })
@@ -34,5 +34,4 @@ $("#scriptureform").submit(function (event) {
       $("#response").text(message);
       console.log(message);
     });
-
 });

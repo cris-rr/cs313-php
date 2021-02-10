@@ -21,24 +21,24 @@ $chbox = $_POST['newtopic'];
 
 function test_input($data)
 {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }
 
 // insert new topic
 if (isset($newtopic) && isset($chbox)) {
-    $qry = 'INSERT INTO topic(name) VALUES(:name)';
-    $statment = $db->prepare($qry);
-    $statment->bindValue(':name', $newtopic);
-    $statment->execute();
-    $newtopic_id = $db->lastInsertId("topic_id_seq");
-    if (isset($topic_ids)) {
-        array_push($topic_ids, $newtopic_id);
-    } else {
-        $topic_ids = [$newtopic_id];
-    }
+  $qry = 'INSERT INTO topic(name) VALUES(:name)';
+  $statment = $db->prepare($qry);
+  $statment->bindValue(':name', $newtopic);
+  $statment->execute();
+  $newtopic_id = $db->lastInsertId("topic_id_seq");
+  if (isset($topic_ids)) {
+    array_push($topic_ids, $newtopic_id);
+  } else {
+    $topic_ids = [$newtopic_id];
+  }
 }
 
 
@@ -53,10 +53,10 @@ $stmt->execute();
 // get the scripture_id from above
 $scripture_id = $db->lastInsertId("scriptures_id_seq");
 foreach ($topic_ids as $topic_id) {
-    $stmt = $db->prepare('INSERT INTO linking(scripture_id, topic_id) VALUES(:scripture_id, :topic_id);');
-    $stmt->bindValue(':scripture_id', $scripture_id);
-    $stmt->bindValue(':topic_id', $topic_id);
-    $stmt->execute();
+  $stmt = $db->prepare('INSERT INTO linking(scripture_id, topic_id) VALUES(:scripture_id, :topic_id);');
+  $stmt->bindValue(':scripture_id', $scripture_id);
+  $stmt->bindValue(':topic_id', $topic_id);
+  $stmt->execute();
 }
 
 $displaynewstring = "<h1>Scriptures in Database</h1>";
@@ -72,8 +72,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
   $displaynewstring .= " - '$row[content]'";
   $displaynewstring .= "Topic:$row[name]";
 }
-$_SESSION['displaynewstring'] = $displaynewstring;
-// return $displaynewstring;
+echo $displaynewstring;
 
 // header("Location: scriptures.php");
 
