@@ -10,7 +10,7 @@ $content = test_input($_POST['content']);
 // $topic_ids = array();
 $topic_ids = $_POST['topic'];
 $newtopic = test_input($_POST['topicname']);
-$chbox = $_POST['newtopic'];
+$chbox = isset($_POST['newtopic']) ? $_POST['newtopic'] : null;
 
 // echo $newtopic;
 // exit;
