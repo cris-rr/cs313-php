@@ -32,7 +32,7 @@ $("#scriptureform").submit(function (event) {
     })
     .done(function (res) {
       console.log('done');
-      $('#response').innerHTML = res;
+      $('#response').text = res;
       console.log(res);
 
     })
