@@ -26,16 +26,16 @@ $("#scriptureform").submit(function (event) {
       data: $("#scriptureform").serialize(),
       success: function (res) {
         console.log('success');
-        $('#response').innerHTML = res;
+        $("#response").innerHTML = res;
         console.log(res);
       }
     })
-    .done(function (res) {
-      console.log('done');
-      $('#response').text = res;
-      console.log(res);
+    // .done(function (res) {
+    //   console.log('done');
+    //   $('#response').text = res;
+    //   console.log(res);
 
-    })
+    // })
     .fail(function (message) {
       console.log('file');
       $("#response").text(message);
