@@ -26,13 +26,13 @@ $("#scriptureform").submit(function (event) {
       data: $("#scriptureform").serialize(),
       success: function () {
         console.log('success');
-        $('#response').innerHtml = response;
+        $('#response').innerHTML = response;
         console.log(response);
       }
     })
     .done(function (response) {
       console.log('done');
-      $('#response').innerHtml = response;
+      $('#response').innerHTML = response;
       console.log(response);
 
     })
