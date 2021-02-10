@@ -17,20 +17,22 @@
 // });
 
 
-$("#scriptureform").submit(function (event) {
+$("#scriptureform").on('sumit', function (event) {
   event.preventDefault();
+
   $.ajax({
       method: "POST",
       url: "insert_scripture.php",
-      // data: { name: "Dan", example: "Yup" }
+      data: $("#scriptureform").serialize(),
+      // success: function() {
+      //   $('#response').innerHtml = response;
+      //   console.log(response);
+      // }
     })
     .done(function (response) {
       $('#response').innerHtml = response;
       console.log(response);
     })
-    // .done(function (message) {
-    //     $("#log").text(message);
-    // })
     .fail(function (message) {
       $("#response").text(message);
       console.log(message);
