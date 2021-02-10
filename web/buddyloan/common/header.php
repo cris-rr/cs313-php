@@ -2,7 +2,7 @@
 if ($_SESSION['loggedin']) {
   //echo "<span>Welcome $cookieFirstname</span>";
   $displayWelcome = "<p>Welcome User Name</p>
-                      <a class='signout' href='#'>Sign Out</a>
+                      <a class='signout' href='../accounts?action=login'>Sign Out</a>
                     ";
   $displayMenu = "
     <ul class='menubar'>
