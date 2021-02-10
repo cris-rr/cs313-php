@@ -17,7 +17,7 @@
 // });
 
 
-$("#scriptureform").on('sumit', function (event) {
+$("#scriptureform").submit(function (event) {
   event.preventDefault();
   console.log("before post");
   $.ajax({
