@@ -27,6 +27,7 @@ $("#scriptureform").submit(function (event) {
       success: function (res) {
         console.log('success');
         $("#response").innerHTML = res;
+        console.log($("#response"));
         console.log(res);
       }
     })
