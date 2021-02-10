@@ -21,7 +21,7 @@ $("#scriptureform").submit(function (event) {
   event.preventDefault();
   $.ajax({
       method: "POST",
-      url: "response.php",
+      url: "insert_scripture.php",
       // data: { name: "Dan", example: "Yup" }
     })
     .done(function (response) {
