@@ -1,7 +1,7 @@
 <?php
 require('connection.php');
 $db = get_db();
-session_start();
+// session_start();
 
 $book = test_input($_POST['book']);
 $chapter = test_input($_POST['chapter']);

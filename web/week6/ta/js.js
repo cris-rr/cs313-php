@@ -24,15 +24,15 @@ $("#scriptureform").on('sumit', function (event) {
       method: "POST",
       url: "insert_scripture.php",
       data: $("#scriptureform").serialize(),
-      // success: function() {
-      //   $('#response').innerHtml = response;
-      //   console.log(response);
-      // }
+      success: function () {
+        $('#response').innerHtml = response;
+        console.log(response);
+      }
     })
-    .done(function (response) {
-      $('#response').innerHtml = response;
-      console.log(response);
-    })
+    // .done(function (response) {
+    //   $('#response').innerHtml = response;
+    //   console.log(response);
+    // })
     .fail(function (message) {
       $("#response").text(message);
       console.log(message);
