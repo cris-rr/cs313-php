@@ -30,7 +30,13 @@ if ($action == NULL) {
 // Process action.
 switch ($action) {
   case 'add':
-    include 'view/template.php';
+    include 'view/transaction-add.php';
+    break;
+  case 'del':
+    include 'view/transaction-delete.php';
+    break;
+  case 'mod':
+    include 'view/transaction-update.php';
     break;
   default:
     $userId = $_SESSION['userId'];

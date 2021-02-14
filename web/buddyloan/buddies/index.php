@@ -27,8 +27,11 @@ if ($action == NULL) {
 // Process action.
 switch ($action) {
   case 'add':
-    include 'view/template.php';
+    include 'view/buddy-add.php';
     break;
+  case 'del':
+    include 'view/buddy-delete.php';
+    breack;
   default:
     $userId = $_SESSION['userId'];
     $buddies = getBuddies($userId);
