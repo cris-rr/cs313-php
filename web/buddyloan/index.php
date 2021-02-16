@@ -6,8 +6,9 @@
 
 //Create or access a Session
 session_start();
-$_SESSION['loggedin'] = true;
-$_SESSION['userId'] = 1;
+// unset($_SESSION['loggedin']);
+// $_SESSION['loggedin'] = true;
+// $_SESSION['userId'] = 0;
 
 //Get database connection file
 require_once(__DIR__ . '/library/connection.php');

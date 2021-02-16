@@ -198,6 +198,11 @@ td {
   cursor: pointer;
 }
 
+.regbtn {
+  text-decoration: none;
+  background-color:var(--violet);
+}
+
 .form-basic a {
   text-align: center;
   font-weight: bold;

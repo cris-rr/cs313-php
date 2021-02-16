@@ -46,3 +46,28 @@ function buildUserDataDisplay($user)
 
   ";
 }
+
+
+/**
+ * Check if the email adress is valid.
+ * @param $clientEmail The email to validate.
+ * @return $valEmail with the actual email if is valid or NULL id if not.
+ */
+function checkEmail($email)
+{
+  $valEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+  return $valEmail;
+}
+
+/**
+ * Check the password for a minimm of 8 characters,
+ * at least 1 capital letter, at least 1 number and
+ * at least 1 special caracter
+ * @param $clientPassword The password to validate.
+ * @return 1 if is valid or 0 if is not.
+ */
+function checkPassword($password)
+{
+  $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]])(?=.*[A-Z])(?=.*[a-z])([^\s]){8,}$/';
+  return preg_match($pattern, $password);
+}

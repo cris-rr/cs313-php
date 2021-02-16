@@ -20,7 +20,7 @@
   <p>Here you can view and edit your data and credentials</p>
 
   <main class="user-data">
-    <form class="form-basic" id="admin" method="POST" action="">
+    <form class="form-basic" id="modify-user" method="POST" action="">
       <label for="firstname">First Name:</label>
       <input class="data" type="text" name="firstname" id="firstname" <?php if (isset($user['firstname'])) {
                                                                         echo "value='$user[firstname]'";
@@ -41,14 +41,23 @@
       <input class="data" type="text" name="pin" id="pin" <?php if (isset($user['pin'])) {
                                                             echo "value='$user[pin]'";
                                                           } ?> required>
+      <input type="hidden" name="userid" id="userid" <?php if (isset($user['userid'])) {
+                                                        echo "value='$user[userid]'";
+                                                      } ?> required>
+      <input type="submit" class="sign-button" name="submit" id="updateInfo" value="Update Profile">
+      <input type="hidden" name="action" value="update">
+
+    </form>
+
+    <form class="form-basic" id="modify-password" method="POST" action="">
       <label for="password">Password:</label>
       <span class="password-requirements">Passwords must be at least 8 characters and
         contain at least 1 number, 1 capital letter and 1 special character</span>
       <input class="data" type="password" name="password" id="password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
       <input type="submit" class="sign-button" name="submit" id="updateInfo" value="Update Profile">
-      <input type="hidden" name="action" value="register">
-
+      <input type="hidden" name="action" value="updatePass">
     </form>
+
   </main>
 
 
