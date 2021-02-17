@@ -28,12 +28,11 @@ if ($action == NULL) {
 // Process action.
 switch ($action) {
   case 'add':
-    // Filter adn store data
+    // Filter and store data
     $buddyPin = filter_input(INPUT_POST, 'buddyPin', FILTER_SANITIZE_STRING);
 
     // check if pin correspond to a registered user
     $buddyData = getUserByPin($buddyPin);
-
     if (!$buddyData) {
       $message = '<p>This Pin number is not associated with any user, check Pin number an try again.</p>';
       include '../view/buddies.php';
@@ -41,8 +40,23 @@ switch ($action) {
     }
 
     // show buddy details and confirm
-    include 'view/buddy-add.php';
+    include '../view/buddy-add.php';
     break;
+
+  case 'confirmBuddy':
+    // Filter buddyId
+    $buddyId = filter_input(INPUT_POST, 'buddyId', FILTER_SANITIZE_NUMBER_INT);
+    // Insert buddy to database
+    $date = date('Y-m-d');
+    $regOutcome = regBuddy($_SESSION['userId'], $buddyId, $date);
+
+    if ($regOutcome === 1) {
+      $_SESSION['message'] = "<p>Your new Buddy was added succesfully</p>";
+    }
+    header("Location: ../buddies/");
+
+
+    // go to default
 
   case 'del':
     include 'view/buddy-delete.php';

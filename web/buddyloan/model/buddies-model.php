@@ -57,3 +57,32 @@ function getBuddy($userId, $buddyId)
   // Return the client record
   return $buddies;
 }
+
+// Register a new buddy
+function regBuddy($userid, $buddyid, $date)
+{
+  // Create a connection object using connection function
+  $db = get_db();
+
+  // The SQL statememnt
+  $sql = 'INSERT INTO buddyloan.buddies (userid, buddyid, date, balance)
+            VALUES (:userid, :buddyid, :date, 0)';
+  $stmt = $db->prepare($sql);
+
+  // Replace placeholders with variables values, with the type.
+  $stmt->bindValue(':userid', $userid, PDO::PARAM_INT);
+  $stmt->bindValue(':buddyid', $buddyid, PDO::PARAM_INT);
+  $stmt->bindValue(':date', $date, PDO::PARAM_STR);
+
+  // Insert the data
+  $stmt->execute();
+
+  // total rows affected, it should be 1
+  $rowsChanged = $stmt->rowCount();
+
+  // close the database interaction
+  $stmt->closeCursor();
+
+  // Return rows affected
+  return $rowsChanged;
+}
