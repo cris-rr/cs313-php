@@ -104,7 +104,7 @@ function checkExistingEmail($email)
 }
 
 // Check for an exising pin
-function checkExistingPing($pin)
+function checkExistingPin($pin)
 {
   // Create a connection to the database
   $db = get_db();

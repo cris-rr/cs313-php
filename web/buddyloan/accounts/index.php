@@ -161,7 +161,7 @@ switch ($action) {
     $email = checkEmail($email);
 
     // Check password
-    //$passwordCheck = checkPassword($password);
+    // $passwordCheck = checkPassword($password);
     $passwordCheck = true;
 
     // Check for missing data
@@ -176,8 +176,8 @@ switch ($action) {
     $userData = getUserbyEmail($email);
 
     // Compare password
-    // $hashCheck = password_verify($password, $userData['password']);
-    $hashCheck = $password === $userData['password'];
+    $hashCheck = password_verify($password, $userData['password']);
+    // $hashCheck = $password === $userData['password'];
 
     // If password don't match create an error and return to the login view
     if (!$hashCheck) {
@@ -214,8 +214,9 @@ switch ($action) {
 
     // Check email
     $email = checkEmail($email);
+
     // Check password
-    $checkPassord = checkPassword($password);
+    $checkPassword = checkPassword($password);
 
     //Check for existing email
     $existingEmail = checkExistingEmail($email);
@@ -228,7 +229,7 @@ switch ($action) {
     }
 
     //Check for existing ping
-    $existingPin = checkExistingPing($pin);
+    $existingPin = checkExistingPin($pin);
 
     //If pin exists show message and redirect to login.php
     if ($existingPin) {
@@ -237,11 +238,10 @@ switch ($action) {
       exit;
     }
 
-
     // Check for missing data
     if (
       empty($firstname) || empty($lastname) || empty($email)
-      || empty($phone) || empty($pin) || empty($checkPassord)
+      || empty($phone) || empty($pin) || empty($checkPassword)
     ) {
       $message = '<p>Please provide information for all empty form fields.</p>';
       include '../view/registration.php';
