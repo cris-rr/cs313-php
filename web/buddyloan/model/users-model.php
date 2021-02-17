@@ -41,7 +41,7 @@ function getUserByPin($pin)
   // Replace  placeholders with variable values, with the type
   $stmt->bindValue(':pin', $pin, PDO::PARAM_STR);
 
-  // Ejecuta la consulta
+  // Execute query
   $stmt->execute();
   $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -64,7 +64,7 @@ function getUserByEmail($email)
   $stmt = $db->prepare($sql);
 
   // Replace  placeholders with variable values, with the type
-  $stmt->bindValue(':email', $email, PDO::PARAM_STR;
+  $stmt->bindValue(':email', $email, PDO::PARAM_STR);
 
   // Ejecuta la consulta
   $stmt->execute();
@@ -221,4 +221,3 @@ function updateUserPass($userId, $password)
   // Return rows affected
   return $rowsChanged;
 }
-

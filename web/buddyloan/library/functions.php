@@ -8,7 +8,7 @@ function buildBuddiesDisplay($buddies)
     $dv .= "<tr>
       <td>$buddy[firstname]</td>
       <td>$buddy[lastname]</td>
-      <td>$buddy[fpin]</td>
+      <td>$buddy[pin]</td>
       <td>$buddy[phone]</td>
       <td>$buddy[email]</td>
       <td>$buddy[balance]</td>
