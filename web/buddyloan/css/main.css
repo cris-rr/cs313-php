@@ -32,9 +32,13 @@ body {
   font-weight: lighter;
 }
 
-h2 {
-  font-weight: normal;
+.subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: lighter;
+  color: var(--black);
+  margin-bottom: 0;
 }
+
 
 /* Header --------------------------- */
 .header-top {
@@ -228,6 +232,21 @@ input:required:valid {
 .notification,
 .notice {
   color: brown;
+}
+
+.form-horizontal {
+  width: 250px;
+  padding: 0.2rem 1rem;
+}
+
+/* Add buddy ---------- */
+.buddy-add p {
+  margin: 1rem 0 0.2rem;
+  padding: 0 1rem;
+}
+
+#buddy-add-submit {
+  margin-top: 1rem;
 }
 
 /* Footer ------------- */

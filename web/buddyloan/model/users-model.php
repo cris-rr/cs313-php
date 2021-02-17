@@ -28,6 +28,31 @@ function getUserById($userId)
   return $userData;
 }
 
+// Get the user by Pin
+function getUserByPin($pin)
+{
+  // Create a connection to the database
+  $db = get_db();
+
+  // SQL Statement
+  $sql = 'SELECT * FROM buddyloan.users WHERE pin = :pin';
+  $stmt = $db->prepare($sql);
+
+  // Replace  placeholders with variable values, with the type
+  $stmt->bindValue(':pin', $pin, PDO::PARAM_STR);
+
+  // Ejecuta la consulta
+  $stmt->execute();
+  $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // Close the database interaction
+  $stmt->closeCursor();
+
+  // Return the client record
+  return $userData;
+}
+
+
 // Get the user with email
 function getUserByEmail($email)
 {
@@ -39,7 +64,7 @@ function getUserByEmail($email)
   $stmt = $db->prepare($sql);
 
   // Replace  placeholders with variable values, with the type
-  $stmt->bindValue(':email', $email, PDO::PARAM_INT);
+  $stmt->bindValue(':email', $email, PDO::PARAM_STR;
 
   // Ejecuta la consulta
   $stmt->execute();
@@ -196,3 +221,4 @@ function updateUserPass($userId, $password)
   // Return rows affected
   return $rowsChanged;
 }
+
