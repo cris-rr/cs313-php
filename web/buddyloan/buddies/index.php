@@ -64,6 +64,7 @@ switch ($action) {
 
     header("Location: ../buddies/");
     exit;
+
     // request delete
   case 'del':
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
