@@ -162,6 +162,7 @@ switch ($action) {
 
     // Check password
     // $passwordCheck = checkPassword($password);
+    // TODO change this after instructor review, change cris user password
     $passwordCheck = true;
 
     // Check for missing data

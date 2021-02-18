@@ -3,8 +3,11 @@
 // Build Buddies display
 function buildBuddiesDisplay($buddies)
 {
+  // $route = (dirname(__DIR__, 1) . "/buddies?action=");
+  $route = "/buddies?action=";
   $dv = '<ul id="buddy-display">';
   foreach ($buddies as $buddy) {
+    $delete = $route . 'del&id=' . $buddy['id'] . '&buddy=' . $buddy['buddyid'];
     $dv .= "<tr>
       <td>$buddy[firstname]</td>
       <td>$buddy[lastname]</td>
@@ -12,6 +15,7 @@ function buildBuddiesDisplay($buddies)
       <td>$buddy[phone]</td>
       <td>$buddy[email]</td>
       <td>$buddy[balance]</td>
+      <td><a class='btn btn-del' href ='$delete'>Delete</a></td>
       </tr>";
   }
 

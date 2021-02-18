@@ -16,9 +16,10 @@
     require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
-  <h1>Buddy Loan</h1>
-  <p>Template page</p>
-
+  <main>
+    <h1>Buddy Loan</h1>
+    <p>Template page</p>
+  </main>
   <footer>
     <?php
     require(dirname(__DIR__, 1) . '/common/footer.php');

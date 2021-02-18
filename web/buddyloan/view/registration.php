@@ -49,7 +49,7 @@
       <label for="password">Password:</label>
       <span class="password-requirements">Passwords must be at least 8 characters and
         contain at least 1 number, 1 capital letter and 1 special character</span>
-      <input class="data" type="password" name="password" id="password" required>
+      <input class="data" type="password" name="password" id="password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
       <input type="submit" class="sign-button" name="submit" id="updateInfo" value="Save and Create">
       <input type="hidden" name="action" value="register">
 

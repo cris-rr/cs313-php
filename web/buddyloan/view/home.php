@@ -16,12 +16,14 @@
     require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
-  <h1 class="title">Your Dashboard</h1>
-  <p>Here will be a dashboard of the user if is logged else the login/register page</p>
-  <p>
-    usuario:
-    <? echo $_SESSION['fullName']?>
-  </p>
+  <main>
+    <h1 class="title">Your Dashboard</h1>
+    <p>Here will be a dashboard of the user if is logged else the login/register page</p>
+    <p>
+      usuario:
+      <? echo $_SESSION['fullName']?>
+    </p>
+  </main>
   <footer>
     <?php
     require(dirname(__DIR__, 1) . '/common/footer.php');

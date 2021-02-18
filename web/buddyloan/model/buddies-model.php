@@ -8,7 +8,7 @@ function getBuddies($userId)
   $db = get_db();
 
   // SQL Statement
-  $sql = 'SELECT b.userid, u.firstname, u.lastname, u.pin, u. phone, u.email, b.balance 
+  $sql = 'SELECT b.id, b.userid, b.buddyid, u.firstname, u.lastname, u.pin, u. phone, u.email, b.balance 
   FROM buddyloan.buddies b 
   JOIN buddyloan.users u ON b.buddyid = u.userid 
   WHERE b.userid = :userId';
@@ -30,32 +30,36 @@ function getBuddies($userId)
   return $buddies;
 }
 
-function getBuddy($userId, $buddyId)
+function existingBuddy($userId, $buddyId)
 {
   // Create a connection to the database
   $db = get_db();
 
   // SQL Statement
-  $sql = 'SELECT b.userid, u.firstname, u.lastname, u.pin, u. phone, u.email, b.balance 
-  FROM buddyloan.buddies b 
-  JOIN buddyloan.users u ON b.buddyid = u.userid 
-  WHERE b.userid = :userId';
+  $sql = 'SELECT userid, buddyid 
+  FROM buddyloan.buddies 
+  WHERE userid = :userId and buddyid = :buddyId';
 
   // prepared statemenet
   $stmt = $db->prepare($sql);
 
   // Replace  placeholders with variable values, with the type
   $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+  $stmt->bindValue(':buddyId', $buddyId, PDO::PARAM_INT);
 
   // Ejecuta la consulta
   $stmt->execute();
-  $buddies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $matchBuddy = $stmt->fetchAll(PDO::FETCH_NUM);
 
   // Close the database interaction
   $stmt->closeCursor();
 
   // Return the client record
-  return $buddies;
+  if (empty($matchBuddy)) {
+    return 0;
+  } else {
+    return 1;
+  }
 }
 
 // Register a new buddy
@@ -84,5 +88,48 @@ function regBuddy($userid, $buddyid, $date)
   $stmt->closeCursor();
 
   // Return rows affected
+  return $rowsChanged;
+}
+
+function deleteBuddy($id)
+{
+  // Create a connection object and create the sql statement
+  $db = get_db();
+  $sql = 'DELETE from buddyloan.buddies WHERE id = :id';
+  $stmt = $db->prepare($sql);
+
+  // Replace placeholders with variables values, with type
+  $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+  // Delete data;
+  $stmt->execute();
+
+  // total rows affected
+  $rowsChanged = $stmt->rowCount();
+  // close the database interaction
+  $stmt->closeCursor();
+  // return rows affectec
+  return $rowsChanged;
+}
+
+
+function deleteBuddy2($userId, $buddyId)
+{
+  // Create a connection object and create the sql statement
+  $db = get_db();
+  $sql = 'DELETE from buddyloan.buddies 
+    WHERE userid = :userId AND buddyid=:buddyId';
+  $stmt = $db->prepare($sql);
+
+  // Replace placeholders with variables values, with type
+  $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+  $stmt->bindValue(':buddyId', $buddyId, PDO::PARAM_INT);
+  // Delete data;
+  $stmt->execute();
+
+  // total rows affected
+  $rowsChanged = $stmt->rowCount();
+  // close the database interaction
+  $stmt->closeCursor();
+  // return rows affectec
   return $rowsChanged;
 }

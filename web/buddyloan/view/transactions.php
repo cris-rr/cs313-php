@@ -19,29 +19,29 @@
   <h1 class="title">All My Transactions</h1>
   <p>This is the transactions page</p>
 
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Id</td>
+          <td>Description</td>
+          <td>Date</td>
+          <td>Amount</td>
+          <td>Image</td>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        if (isset($displayTransactions)) {
+          echo $displayTransactions;
+        }
+        ?>
 
-  <table>
-    <thead>
-      <tr>
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Id</td>
-        <td>Description</td>
-        <td>Date</td>
-        <td>Amount</td>
-        <td>Image</td>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      if (isset($displayTransactions)) {
-        echo $displayTransactions;
-      }
-      ?>
-
-    </tbody>
-  </table>
-
+      </tbody>
+    </table>
+  </main>
   <footer>
     <?php
     require(dirname(__DIR__, 1) . '/common/footer.php');

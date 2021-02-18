@@ -7,6 +7,9 @@
   --red:#FF9291;
   --violet: #EEBCD6;
   --black: #464646;
+  --redish: #FF4946;
+  --blueish: #3689f5;
+  --green: #D6FF31;
 }
 
 html {
@@ -24,6 +27,10 @@ body {
   margin: 0;
   font-size: 16px;
   padding: 1rem;
+}
+
+main {
+  padding: 0 1rem;
 }
 
 .title {
@@ -163,6 +170,7 @@ thead {
 
 tr {
   padding: 0.2rem;
+  height: 2.2rem;
 }
 
 td {
@@ -237,6 +245,49 @@ input:required:valid {
 .form-horizontal {
   width: 250px;
   padding: 0.2rem 1rem;
+}
+
+/* edit delete buttons ----*/
+.btn {
+  /* margin-top: 1.5rem; */
+  /* background-color: var(--green); */
+  padding: 0.2rem 0.5rem;
+  color: var(--black);
+  /* border: 2px #9fe222 solid; */
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.3em;
+  font-weight: normal;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-edit {
+  border-color: var(--blueish);
+  /* background-color: var(--green); */
+}
+
+.btn-del {
+  border-color: var(--redish);
+  /* background-color: var(--red); */
+
+}
+
+.btn-edit:hover {
+  background-color: var(--blueish);
+  color: white;
+}
+
+.btn-del:hover {
+  background-color: var(--redish);
+  color: white;
+}
+
+.btn-del-big {
+  padding: 0.5rem;
+  border-color: var(--redish);
+  background-color: var(--red);
 }
 
 /* Add buddy ---------- */

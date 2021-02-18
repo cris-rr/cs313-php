@@ -34,8 +34,16 @@ switch ($action) {
     // check if pin correspond to a registered user
     $buddyData = getUserByPin($buddyPin);
     if (!$buddyData) {
-      $message = '<p>This Pin number is not associated with any user, check Pin number an try again.</p>';
-      include '../view/buddies.php';
+      $_SESSION['message'] = '<p>This Pin number is not associated with any user, check the Pin number an try again.</p>';
+      header("Location: ../buddies/");
+      exit;
+    }
+
+    // check if this buddy is already included
+    $existBuddy = existingBuddy($_SESSION['userId'], $buddyData['userid']);
+    if ($existBuddy) {
+      $_SESSION['message'] = '<p>This User is already added, check the Pin number an try again.</p>';
+      header("Location: ../buddies/");
       exit;
     }
 
@@ -43,7 +51,7 @@ switch ($action) {
     include '../view/buddy-add.php';
     break;
 
-  case 'confirmBuddy':
+  case 'confirm':
     // Filter buddyId
     $buddyId = filter_input(INPUT_POST, 'buddyId', FILTER_SANITIZE_NUMBER_INT);
     // Insert buddy to database
@@ -55,12 +63,52 @@ switch ($action) {
     }
     header("Location: ../buddies/");
 
+    // request delete
+  case 'del':
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $buddyId = filter_input(INPUT_GET, 'buddy', FILTER_VALIDATE_INT);
+
+
+    // TODO check if there is a pending balance, pass a warning message to delete page
+
+    // Get buddyData
+    $buddyData = getUserById($buddyId);
+
+    // Check if there is data.
+    if (!$buddyData) {
+      $_SESSION['message'] = '<p>This buddy do not exist please check your request.</p>';
+      header("Location: ../buddies/");
+      exit;
+    }
+    include '../view/buddy-delete.php';
+    break;
+
+    // proceed delete
+  case 'delete':
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $buddyId = filter_input(INPUT_POST, 'buddyId', FILTER_SANITIZE_NUMBER_INT);
+    $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
+    $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
+
+    // Send the data to the model
+    // $deleteResult = deleteBuddy($_SESSION['userId'], $buddyId);
+    $deleteResult = deleteBuddy($id);
+
+    // Check result and display message
+    if ($deleteResult) {
+      $message = "<p class='notice'>The User: $firstname $lastname was succesfully deleted from your buddies.</p>";
+      $_SESSION['messageReview'] = $message;
+      header('location: ../buddies/');
+      exit;
+    } else {
+      $message = "<p class='notice'>Error: The User: $firstname $lastname  was not deleted.</p>";
+      $_SESSION['messageReview'] = $message;
+      header('location: ../buddies/');
+      exit;
+    }
+    break;
 
     // go to default
-
-  case 'del':
-    include 'view/buddy-delete.php';
-    break;
   default:
     $userId = $_SESSION['userId'];
     $buddies = getBuddies($userId);
