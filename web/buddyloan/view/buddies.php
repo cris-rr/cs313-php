@@ -58,7 +58,7 @@
       <form class="form-basic form-horizontal" id="addBuddy" method="POST" action="../buddies/">
 
         <!-- <label for="buddyPin">Enter the your Buddy's Pin number:</label> -->
-        <input class="data" type="text" name="buddyPin" id="buddyPin">
+        <input class="data" type="text" name="buddyPin" id="buddyPin" required>
         <input type="submit" class="sign-button" name="submit" id="buddy-add-submit" value="Add Buddy">
         <input type="hidden" name="action" value="add">
       </form>

@@ -61,8 +61,9 @@ switch ($action) {
     if ($regOutcome === 1) {
       $_SESSION['message'] = "<p>Your new Buddy was added succesfully</p>";
     }
-    header("Location: ../buddies/");
 
+    header("Location: ../buddies/");
+    exit;
     // request delete
   case 'del':
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);

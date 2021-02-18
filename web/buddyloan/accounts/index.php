@@ -59,7 +59,7 @@ switch ($action) {
     }
 
     //Check for existing ping
-    $existingPin = checkExistingPing($pin);
+    $existingPin = checkExistingPin($pin);
 
     //If pin exists show message and redirect to login.php
     if ($existingPin) {
