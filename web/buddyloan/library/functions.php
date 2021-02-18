@@ -4,9 +4,8 @@
 function buildBuddiesDisplay($buddies)
 {
   // $route = (dirname(__DIR__, 1) . "/buddies?action=");
-  echo 'path: ' . $_SERVER['DOCUMENT_ROOT'];
-  exit;
-  $route = "/buddies?action=";
+  // echo 'path: ' . $_SERVER['DOCUMENT_ROOT'];
+  $route = "../buddies?action=";
   $dv = '<ul id="buddy-display">';
   foreach ($buddies as $buddy) {
     $delete = $route . 'del&id=' . $buddy['id'] . '&buddy=' . $buddy['buddyid'];
