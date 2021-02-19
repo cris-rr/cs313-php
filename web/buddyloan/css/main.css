@@ -249,11 +249,8 @@ input:required:valid {
 
 /* edit delete buttons ----*/
 .btn {
-  /* margin-top: 1.5rem; */
-  /* background-color: var(--green); */
   padding: 0.2rem 0.5rem;
   color: var(--black);
-  /* border: 2px #9fe222 solid; */
   border-width: 1px;
   border-style: solid;
   border-radius: 0.3em;
@@ -290,6 +287,13 @@ input:required:valid {
   background-color: var(--red);
 }
 
+.btn-add-big {
+  padding: 0.5rem;
+  border-width: 2px;
+  border-color: #9fe222;
+  background-color: var(--yellow);
+}
+
 /* Add buddy ---------- */
 .buddy-add p {
   margin: 1rem 0 0.2rem;
@@ -299,6 +303,16 @@ input:required:valid {
 #buddy-add-submit {
   margin-top: 1rem;
 }
+
+/* others ------------- */
+.wrapper-title {
+  margin-bottom: 1.5rem;
+}
+
+.wrapper-title p {
+  margin-bottom: 1.5rem;
+}
+
 
 /* Footer ------------- */
 

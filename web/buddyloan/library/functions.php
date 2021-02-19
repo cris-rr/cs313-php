@@ -27,8 +27,11 @@ function buildBuddiesDisplay($buddies)
 // Build Transaction display
 function buildTransactionsDisplay($transactions)
 {
+  $route = "../transactions?action=";
   $dv = '<ul id="transactions-display">';
   foreach ($transactions as $transaction) {
+    $delete = $route . 'del&id=' . $transactions['transactionid'];
+    $edit = $route . 'mod&id=' . $transactions['transactionid'];
     $dv .= "<tr>
       <td>$transaction[firstname]</td>
       <td>$transaction[lastname]</td>
@@ -36,7 +39,9 @@ function buildTransactionsDisplay($transactions)
       <td>$transaction[description]</td>
       <td>$transaction[date]</td>
       <td>$transaction[amount]</td>
-      <td>$transaction[image_path]</td>      
+      <td>$transaction[image_path]</td>
+      <td><a class='btn btn-edit' href ='$edit'>Edit</a></td>
+      <td><a class='btn btn-del' href ='$delete'>Delete</a></td>
       </tr>";
   }
 

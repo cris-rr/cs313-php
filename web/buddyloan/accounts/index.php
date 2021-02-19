@@ -7,6 +7,8 @@
 //Create or access a Session
 session_start();
 
+// If not loggedin redirect to main controler
+
 //Get database connection file
 require_once(dirname(__DIR__, 1) . '/library/connection.php');
 

@@ -18,7 +18,7 @@
   </header>
   <main>
     <h1 class="title">All My Buddies</h1>
-    <p>This is the buddies page</p>
+    <p>Manage your buddies</p>
 
     <table>
       <thead>

@@ -7,6 +7,12 @@
 //Create or access a Session
 session_start();
 
+// If not loggedin redirect to main controler
+if (!isset($_SESSION['loggedin'])) {
+  header('location: ../');
+  die(); # code...
+}
+
 //Get database connection file
 require_once(dirname(__DIR__, 1) . '/library/connection.php');
 
@@ -34,7 +40,7 @@ switch ($action) {
     // check if pin correspond to a registered user
     $buddyData = getUserByPin($buddyPin);
     if (!$buddyData) {
-      $_SESSION['message'] = '<p>This Pin number is not associated with any user, check the Pin number an try again.</p>';
+      $_SESSION['message'] = "<p class='notice'>This Pin number is not associated with any user, check the Pin number an try again.</p>";
       header("Location: ../buddies/");
       exit;
     }
@@ -42,7 +48,7 @@ switch ($action) {
     // check if this buddy is already included
     $existBuddy = existingBuddy($_SESSION['userId'], $buddyData['userid']);
     if ($existBuddy) {
-      $_SESSION['message'] = '<p>This User is already added, check the Pin number an try again.</p>';
+      $_SESSION['message'] = "<p class='notice'>This User is already added, check the Pin number an try again.</p>";
       header("Location: ../buddies/");
       exit;
     }
@@ -59,7 +65,7 @@ switch ($action) {
     $regOutcome = regBuddy($_SESSION['userId'], $buddyId, $date);
 
     if ($regOutcome === 1) {
-      $_SESSION['message'] = "<p>Your new Buddy was added succesfully</p>";
+      $_SESSION['message'] = "<p class='notice'>Your new Buddy was added succesfully</p>";
     }
 
     header("Location: ../buddies/");
@@ -78,7 +84,7 @@ switch ($action) {
 
     // Check if there is data.
     if (!$buddyData) {
-      $_SESSION['message'] = '<p>This buddy do not exist please check your request.</p>';
+      $_SESSION['message'] = "<p class='notice'>This buddy do not exist please check your request.</p>";
       header("Location: ../buddies/");
       exit;
     }
@@ -99,7 +105,7 @@ switch ($action) {
     // Check result and display message
     if ($deleteResult) {
       $message = "<p class='notice'>The User: $firstname $lastname was succesfully deleted from your buddies.</p>";
-      $_SESSION['messageReview'] = $message;
+      $_SESSION['message'] = $message;
       header('location: ../buddies/');
       exit;
     } else {

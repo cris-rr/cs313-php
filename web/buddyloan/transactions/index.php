@@ -7,6 +7,12 @@
 //Create or access a Session
 session_start();
 
+// If not loggedin redirect to main controler
+if (!isset($_SESSION['loggedin'])) {
+  header('location: ../');
+  die(); # code...
+}
+
 //Get database connection file
 require_once(dirname(__DIR__, 1) . '/library/connection.php');
 
@@ -30,13 +36,13 @@ if ($action == NULL) {
 // Process action.
 switch ($action) {
   case 'add':
-    include 'view/transaction-add.php';
+    include '../view/transaction-add.php';
     break;
   case 'del':
-    include 'view/transaction-delete.php';
+    include '../view/transaction-delete.php';
     break;
   case 'mod':
-    include 'view/transaction-update.php';
+    include '../view/transaction-update.php';
     break;
   default:
     $userId = $_SESSION['userId'];
