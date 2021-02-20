@@ -55,6 +55,7 @@ switch ($action) {
 
     // show buddy details and confirm
     include '../view/buddy-add.php';
+    exit;
     break;
 
   case 'confirm':

@@ -174,9 +174,16 @@ tr {
 }
 
 td {
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 }
 
+.col-edit { 
+  padding-right: 0.3rem;
+}
+
+.col-del {
+  padding-left: 0;
+}
 
 /* Forms --------------------------------- */
 .form-basic {

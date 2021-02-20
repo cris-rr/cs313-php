@@ -7,6 +7,7 @@ function buildBuddiesDisplay($buddies)
   // echo 'path: ' . $_SERVER['DOCUMENT_ROOT'];
   $route = "../buddies?action=";
   $dv = '<ul id="buddy-display">';
+
   foreach ($buddies as $buddy) {
     $delete = $route . 'del&id=' . $buddy['id'] . '&buddy=' . $buddy['buddyid'];
     $dv .= "<tr>
@@ -19,8 +20,19 @@ function buildBuddiesDisplay($buddies)
       <td><a class='btn btn-del' href ='$delete'>Delete</a></td>
       </tr>";
   }
-
   $dv .= '</ul>';
+  return $dv;
+}
+
+// Build buddy list to display in select
+function buildBuddyList($buddies)
+{
+  $dv = "<select class='data' name='buddyid' id='buddyList'>
+          <option>Choose a Buddy</option>";
+  foreach ($buddies as $buddy) {
+    $dv .= "<option value='$buddy[buddyid]'>$buddy[fullname]</option>";
+  }
+  $dv .= "</select>";
   return $dv;
 }
 
@@ -30,8 +42,8 @@ function buildTransactionsDisplay($transactions)
   $route = "../transactions?action=";
   $dv = '<ul id="transactions-display">';
   foreach ($transactions as $transaction) {
-    $delete = $route . 'del&id=' . $transactions['transactionid'];
-    $edit = $route . 'mod&id=' . $transactions['transactionid'];
+    $delete = $route . 'del&id=' . $transaction['transactionid'];
+    $edit = $route . 'mod&id=' . $transaction['transactionid'];
     $dv .= "<tr>
       <td>$transaction[firstname]</td>
       <td>$transaction[lastname]</td>
@@ -40,21 +52,13 @@ function buildTransactionsDisplay($transactions)
       <td>$transaction[date]</td>
       <td>$transaction[amount]</td>
       <td>$transaction[image_path]</td>
-      <td><a class='btn btn-edit' href ='$edit'>Edit</a></td>
-      <td><a class='btn btn-del' href ='$delete'>Delete</a></td>
+      <td class='col-edit'><a class='btn btn-edit' href ='$edit'>Edit</a></td>
+      <td class='col-del'><a class='btn btn-del' href ='$delete'>Delete</a></td>
       </tr>";
   }
 
   $dv .= '<ul/>';
   return $dv;
-}
-
-// Build Admin display
-function buildUserDataDisplay($user)
-{
-  $dv = "
-
-  ";
 }
 
 

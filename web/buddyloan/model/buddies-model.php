@@ -30,6 +30,35 @@ function getBuddies($userId)
   return $buddies;
 }
 
+// Get simple buddiy list by userId
+function getBuddyList($userId)
+{
+  // Create a connection to the database
+  $db = get_db();
+
+  // SQL Statement
+  $sql = "SELECT DISTINCT b.buddyid, concat_ws(' ', u.firstname, u.lastname) fullname
+  FROM buddyloan.buddies b 
+  JOIN buddyloan.users u ON b.buddyid = u.userid 
+  WHERE b.userid = :userId";
+
+  // prepared statemenet
+  $stmt = $db->prepare($sql);
+
+  // Replace  placeholders with variable values, with the type
+  $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+
+  // Ejecuta la consulta
+  $stmt->execute();
+  $buddies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  // Close the database interaction
+  $stmt->closeCursor();
+
+  // Return the client record
+  return $buddies;
+}
+
 function existingBuddy($userId, $buddyId)
 {
   // Create a connection to the database

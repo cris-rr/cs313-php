@@ -39,13 +39,13 @@
     <table>
       <thead>
         <tr>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Id</td>
-          <td>Description</td>
-          <td>Date</td>
-          <td>Amount</td>
-          <td>Image</td>
+          <th class="col-firstname">First Name</th>
+          <th class="col-lastname">Last Name</th>
+          <th class="col-id">Id</th>
+          <th class="col-description">Description</th>
+          <th class="col-date">Date</th>
+          <th class="col-amount">Amount</th>
+          <th class="col-image">Image</th>
         </tr>
       </thead>
       <tbody>

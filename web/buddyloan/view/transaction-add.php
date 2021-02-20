@@ -16,8 +16,38 @@
     require(dirname(__DIR__, 1) . '/common/header.php');
     ?>
   </header>
-  <h1>Buddy Loan</h1>
-  <p>Add a new transaction</p>
+  <main>
+    <h1>Buddy Loan</h1>
+    <p>Add a new transaction</p>
+
+    <form class="form-basic" id="transaction-add" method="POST" action="../transactions/">
+      <label for="buddy">Select a buddy:</label>
+      <?php
+      if (isset($displayBuddies)) {
+        echo $displayBuddies;
+      }
+      ?>
+      <label for="description">Description: </label>
+      <input class="data" type="text" name="description" id="description" <?php if (isset($description)) {
+                                                                            echo "value='$description'";
+                                                                          } ?> required>
+
+      <label for="amount">Amount: </label>
+      <input class="data" type="text" name="amount" id="amount" <?php if (isset($amount)) {
+                                                                  echo "value='$amount'";
+                                                                } ?> required>
+
+      <label for="image">Image</label>
+      <input class="data" type="text" name="image" id="transactionImage" <?php if (isset($image)) {
+                                                                            echo "value='$image'";
+                                                                          } ?>>
+
+      <input type="hidden" name="action" value="newTransaction">
+      <input type="submit" class="sign-button" name="submit" id="addTransaction-submit" value="Add Transaction">
+
+    </form>
+
+  </main>
 
   <footer>
     <?php

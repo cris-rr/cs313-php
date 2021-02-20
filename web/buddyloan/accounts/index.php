@@ -34,7 +34,7 @@ switch ($action) {
   case 'admin':
     $userId = $_SESSION['userId'];
     $user = getUserById($userId);
-    $displayUserData = buildUserDataDisplay($user);
+    // $displayUserData = buildUserDataDisplay($user);
     include '../view/admin.php';
     break;
 
