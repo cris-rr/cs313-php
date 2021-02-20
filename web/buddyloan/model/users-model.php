@@ -185,7 +185,8 @@ function updateUser($userId, $firstname, $lastname, $pin, $phone, $email)
 
   // total rows affected, it should be 1
   $rowsChanged = $stmt->rowCount();
-
+  // echo 'users update: ' . var_dump($rowsChanged);
+  // exit;
   // close the database interaction
   $stmt->closeCursor();
 

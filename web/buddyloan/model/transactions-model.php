@@ -114,7 +114,6 @@ function deleteTransaction($id)
 
   // total rows affected
   $rowsChanged = $stmt->rowCount();
-
   // close the database interaction
   $stmt->closeCursor();
   // return rows affectec

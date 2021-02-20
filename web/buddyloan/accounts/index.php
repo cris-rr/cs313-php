@@ -40,7 +40,7 @@ switch ($action) {
 
   case 'update':
     // Filter and store the data
-    $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
+    $userId = filter_input(INPUT_POST, 'userid', FILTER_SANITIZE_NUMBER_INT);
     $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
     $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
     $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
@@ -50,18 +50,10 @@ switch ($action) {
     // Check email
     $email = checkEmail($email);
 
-    //Check for existing email
-    $existingEmail = checkExistingEmail($email);
-
-    //If email exists show message and redirect to login.php
-    if ($existingEmail) {
-      $message = '<p>This email address already exists. Do you want to login instead?</p>';
-      include '../view/login.php';
-      exit;
-    }
-
     //Check for existing ping
-    $existingPin = checkExistingPin($pin);
+    if ($pin <> $_SESSION['userData']['pin']) {
+      $existingPin = checkExistingPin($pin);
+    }
 
     //If pin exists show message and redirect to login.php
     if ($existingPin) {
@@ -94,7 +86,7 @@ switch ($action) {
 
       // Succes message and redirect to admin page.
       $_SESSION['message'] = "<p class='notification'>$firstname. Your information has been updated.</p>";
-      include '../view/admin.php';
+      header("location: ../accounts?action=admin");
       exit;
     } else {
       // Error message.
@@ -106,15 +98,15 @@ switch ($action) {
 
   case 'updatePass':
     // Filter and store the data
-    $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
+    // $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-
+    $userId = $_SESSION['userData']['userid'];
     // Check password
-    $checkPassord = checkPassword($password);
+    $checkPassword = checkPassword($password);
 
     // Check for missing data
-    if (empty($checkPassord)) {
-      $messagePassword = "<p class='notification'>Please provide information for all empty form fields.</p>";
+    if (empty($checkPassword)) {
+      $_SESSION['message'] = "<p class='notification'>Please provide information for all empty form fields.</p>";
       include '../view/admin.php';
       exit;
     }
@@ -123,24 +115,24 @@ switch ($action) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Send the data to the model
-    $updatePassResult = updateUserPass($clientId, $hashedPassword);
+    $updatePassResult = updateUserPass($userId, $hashedPassword);
 
     // Check and display the result
     if ($updatePassResult) {
       // get the updated client from database
-      $clientData = getUserById($clientId);
+      $userData = getUserById($userId);
       // Store the array into the session
       $_SESSION['userData'] = $userData;
       // Store fullname variable
-      $_SESSION['fullName'] = $clientData['firstname'] . ' ' . $clientData['lastname'];
+      $_SESSION['fullName'] = $userData['firstname'] . ' ' . $userData['lastname'];
 
       // Succes message and redirect to admin page.
       $_SESSION['message'] = "<p class='notification'>$userData[firstname]. Your password has been changed.</p>";
-      include '../view/admin.php';
+      header("location: ../accounts?action=admin");
       exit;
     } else {
       // Error message.
-      $_SESSION['message'] = "<p class='notification'>Error: $firstname, the update failed. Please try again.<p/>";
+      $_SESSION['message'] = "<p class='notification'>Error: $userData[firstname], the update failed. Please try again.<p/>";
       include '../view/admin.php';
       exit;
     }
@@ -163,9 +155,9 @@ switch ($action) {
     $email = checkEmail($email);
 
     // Check password
-    // $passwordCheck = checkPassword($password);
+    $passwordCheck = checkPassword($password);
     // TODO change this after instructor review, change cris user password
-    $passwordCheck = true;
+    // $passwordCheck = true;
 
     // Check for missing data
     if (empty($email) || empty($passwordCheck)) {
