@@ -17,12 +17,22 @@
     ?>
   </header>
   <main>
-    <h1 class="title">Your Dashboard</h1>
-    <p>Here will be a dashboard of the user if is logged else the login/register page</p>
-    <p>
-      usuario:
-      <? echo $_SESSION['fullName']?>
-    </p>
+    <h1 class="title">My Dashboard.</h1>
+    <p>A balance of debts and Credits</p>
+
+    <section class="summary">
+      <h2 class="subtitle">My Balance</h2>
+      <p><span>Total Debt: </span>
+        <? echo number_format($totalDebt,2) ?>
+      </p>
+      <p><span>Total Credit: </span>
+        <? echo number_format($totalCredit,2) ?>
+      </p>
+      <p><span>Total Balance: </span>
+        <? echo number_format($totalBalance,2) ?>
+      </p>
+    </section>
+
   </main>
   <footer>
     <?php
