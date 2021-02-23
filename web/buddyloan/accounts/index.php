@@ -265,12 +265,14 @@ switch ($action) {
 
   case 'logout':
     session_destroy();
-    header('location: /');
+    header('location: index.php');
     break;
 
   default:
     if (isset($_SESSION['loggedin'])) {
-      include '../view/home.php';
+      header('location: header.php');
+      exit;
+      // include '../view/home.php';
     } else {
       include '../view/login.php';
     }
