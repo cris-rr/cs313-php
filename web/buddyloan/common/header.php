@@ -1,7 +1,7 @@
 <?php
 $folder = $_SERVER['DOCUMENT_ROOT'];
 if ($folder == '/app/web') {
-  $rootPath = "$folder/buddyloan";
+  $rootPath = "/buddyloan";
 } else {
   $rootPath = '..';
 }
