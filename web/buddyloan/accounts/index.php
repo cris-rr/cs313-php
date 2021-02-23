@@ -194,8 +194,9 @@ switch ($action) {
     // Store fullname variable
     $_SESSION['fullName'] = $userData['firstname'] . ' ' . $userData['lastname'];
 
-    // Send them to the admin view
-    include '../view/home.php';
+    // Send them to the dashboard
+    header('Location: ../');
+    // include '../view/home.php';
     break;
 
   case 'register':
@@ -270,7 +271,8 @@ switch ($action) {
 
   default:
     if (isset($_SESSION['loggedin'])) {
-      header('location: header.php');
+      header('Location: ../');
+      // header('location: index.php');
       exit;
       // include '../view/home.php';
     } else {

@@ -48,7 +48,6 @@ if (isset($_SESSION['loggedin'])) {
   } else {
     $dipslayBiggestCredit = buildReviewBuddy($buddyCredit);
   }
-
   include 'view/home.php';
 } else {
   header('location: accounts/');
