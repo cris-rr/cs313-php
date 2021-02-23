@@ -1,4 +1,5 @@
 <?php
+$folder = $_SERVER['DOCUMENT_ROOT'];
 if ($_SESSION['loggedin']) {
   //echo "<span>Welcome $cookieFirstname</span>";
   $displayWelcome = "<p>Welcome $_SESSION[fullName]</p>
@@ -34,7 +35,9 @@ if ($_SESSION['loggedin']) {
 
 <nav>
   <?php
+  echo $folder;
   if (isset($displayMenu)) {
+
     echo $displayMenu;
   }
   ?>
