@@ -320,6 +320,23 @@ input:required:valid {
   margin-bottom: 1.5rem;
 }
 
+/* dashboard ---------- */
+.summary {
+  border-bottom: 1px solid;
+  border-color: var(--black);
+}
+
+.summary .subtitle {
+  color: var(--black);
+}
+
+.summary .partial{
+  color: var(--blueish);
+}
+
+.subtitle2 {
+  color: var(--redish);
+}
 
 /* Footer ------------- */
 

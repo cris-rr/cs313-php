@@ -85,3 +85,15 @@ function checkPassword($password)
   $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]])(?=.*[A-Z])(?=.*[a-z])([^\s]){8,}$/';
   return preg_match($pattern, $password);
 }
+
+// Build dashboard biggest debt or credit
+function buildReviewBuddy($buddy)
+{
+  $balance = number_format($buddy['balance'], 2);
+  $dv = "<p><span class='partial'>Name: </span>$buddy[firstname] $buddy[lastname]</p>
+    <p><span class='partial'>Phone: </span>$buddy[phone]</p>      
+    <p><span class='partial'>Email: </span>$buddy[email]</p>      
+    <p><span class='partial'>Amount: </span>$balance</p>";
+
+  return $dv;
+}

@@ -13,6 +13,13 @@ function getBuddies($userId)
   JOIN buddyloan.users u ON b.buddyid = u.userid 
   WHERE b.userid = :userId';
 
+  $sql = 'SELECT b.id, b.userid, b.buddyid, u.firstname, u.lastname, u.pin, u.phone, u.email, r.balance 
+  FROM buddyloan.buddies b 
+  left JOIN buddyloan.users u ON b.buddyid = u.userid
+  left JOIN buddyloan.balance r on b.userid = r.userid
+  and b.buddyid = r.buddyid 
+  WHERE b.userid = :userId';
+
   // prepared statemenet
   $stmt = $db->prepare($sql);
 

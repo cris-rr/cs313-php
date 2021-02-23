@@ -60,3 +60,61 @@ function getDebt($userId)
   }
   return $debt[0];
 }
+
+function getBiggestDebt($userId)
+{
+  $db = get_db();
+
+  // SQL Statement
+  $sql = 'SELECT b.userid, b.buddyid, u.firstname, u.lastname, u.phone, u.email, b.balance
+  FROM buddyloan.users u
+  JOIN buddyloan.balance b
+  ON u.userid = b.buddyid 
+  WHERE b.userid = :userId
+  ORDER BY b.balance LIMIT 1';
+
+  // prepared statemenet
+  $stmt = $db->prepare($sql);
+
+  // Replace  placeholders with variable values, with the type
+  $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+
+  // Ejecuta la consulta
+  $stmt->execute();
+  $buddy = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // Close the database interaction
+  $stmt->closeCursor();
+
+  // Return the client record
+  return $buddy;
+}
+
+function getBiggestCredit($userId)
+{
+  $db = get_db();
+
+  // SQL Statement
+  $sql = 'SELECT b.userid, b.buddyid, u.firstname, u.lastname, u.phone, u.email, b.balance
+  FROM buddyloan.users u
+  JOIN buddyloan.balance b
+  ON u.userid = b.buddyid
+  WHERE b.userid= :userId
+  ORDER BY b.balance DESC LIMIT 1';
+
+  // prepared statemenet
+  $stmt = $db->prepare($sql);
+
+  // Replace  placeholders with variable values, with the type
+  $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+
+  // Ejecuta la consulta
+  $stmt->execute();
+  $buddy = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // Close the database interaction
+  $stmt->closeCursor();
+
+  // Return the client record
+  return $buddy;
+}

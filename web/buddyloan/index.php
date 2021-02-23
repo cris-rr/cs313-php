@@ -13,6 +13,9 @@ session_start();
 //Get database connection file
 require_once(__DIR__ . '/library/connection.php');
 
+//Get functions file
+require_once(__DIR__ . '/library/functions.php');
+
 //Get Buddyloan model
 require_once(__DIR__ . '/model/users-model.php');
 
@@ -25,12 +28,26 @@ if ($action == NULL) {
 }
 
 if (isset($_SESSION['loggedin'])) {
+  // review general balance
   $userId = $_SESSION['userId'];
   $totalDebt = getDebt($userId);
   $totalCredit = getCredit($userId);
   $totalBalance = floatval($totalCredit) - floatval($totalDebt);
-  // $totalBalance = $totalCredit - $totalDebt;
 
+  // review top debt and credit
+  $buddyDebt = getBiggestDebt($userId);
+  if (!isset($buddyDebt) || $buddyDebt['balance'] >= 0) {
+    $dipslayBiggestDebt = "<p>You are free of debts!</p>";
+  } else {
+    $dipslayBiggestDebt = buildReviewBuddy($buddyDebt);
+  }
+
+  $buddyCredit = getBiggestCredit($userId);
+  if (!isset($buddyCredit) || $buddyCredit['balance'] <= 0) {
+    $dipslayBiggestCredit = "<p>Nobody owes you!</p>";
+  } else {
+    $dipslayBiggestCredit = buildReviewBuddy($buddyCredit);
+  }
 
 
 

@@ -145,3 +145,7 @@ function updateTransaction($id, $description, $date, $amount, $image)
   // retrun rows affectec
   return $rowsChanged;
 }
+
+function updateBalances()
+{
+}
