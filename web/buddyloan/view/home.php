@@ -44,10 +44,10 @@ if ($folder == '/app/web') {
     <section class="summary">
       <h2 class="subtitle">Buddies review: </h2>
       <p><span class="subtitle2">Buddy who owes you more: </span>
-        <? echo $dipslayBiggestDebt ?>
+        <? echo $dipslayBiggestCredit?>
       </p>
       <p><span class="subtitle2">Buddy to whom do I owe more: </span>
-        <? echo $dipslayBiggestCredit ?>
+        <? echo $dipslayBiggestDebt ?>
       </p>
 
     </section>
